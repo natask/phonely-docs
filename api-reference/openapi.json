@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/getAgent": {
+    "/get-agent": {
       "post": {
         "summary": "Get agent information",
         "description": "Retrieve agent information based on the provided user ID and agent ID",
@@ -74,7 +74,7 @@
         ]
       }
     },
-    "/duplicateAgent": {
+    "/duplicate-agent": {
       "post": {
         "summary": "Duplicate an agent",
         "description": "Create a duplicate of an existing agent for the specified user",
