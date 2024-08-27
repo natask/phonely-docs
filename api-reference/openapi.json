@@ -136,6 +136,72 @@
           }
         ]
       }
+    },
+    "/get-agents": {
+      "post": {
+        "summary": "Get agents information",
+        "description": "Retrieve information for all agents associated with the user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetAgentsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AgentInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -171,11 +237,13 @@
           },
           "country": {
             "type": "string",
-            "description": "Country code"
+            "description": "Country code",
+            "nullable": true
           },
           "businessPhoneNumber": {
             "type": "string",
-            "description": "Business phone number"
+            "description": "Business phone number",
+            "nullable": true
           }
         }
       },
@@ -207,6 +275,43 @@
           "name": {
             "type": "string",
             "description": "New duplicated Agent name"
+          }
+        }
+      },
+      "GetAgentsRequest": {
+        "type": "object",
+        "required": ["uid"],
+        "properties": {
+          "uid": {
+            "type": "string",
+            "description": "User ID"
+          }
+        }
+      },
+      "AgentInfo": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "string",
+            "description": "User ID"
+          },
+          "agentId": {
+            "type": "string",
+            "description": "Agent ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Agent name"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country code",
+            "nullable": true
+          },
+          "businessPhoneNumber": {
+            "type": "string",
+            "description": "Business phone number",
+            "nullable": true
           }
         }
       },

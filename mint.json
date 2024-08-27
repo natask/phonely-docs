@@ -44,7 +44,7 @@
     },
     {
       "group": "Endpoint Examples",
-      "pages": ["api-reference/endpoint/get", "api-reference/endpoint/create"]
+      "pages": ["api-reference/endpoint/get-agent", "api-reference/endpoint/get-agents", "api-reference/endpoint/duplicate-agent"]
     }
   ],
   "footerSocials": {
