@@ -29,6 +29,10 @@
     {
       "name": "API Reference",
       "url": "api-reference"
+    },
+    {
+      "name": "Webhook Reference",
+      "url": "webhook-reference"
     }
   ],
   "anchors": [],
@@ -45,6 +49,10 @@
     {
       "group": "Endpoint Examples",
       "pages": ["api-reference/endpoint/get-agent", "api-reference/endpoint/get-agents", "api-reference/endpoint/duplicate-agent"]
+    },
+    {
+      "group": "Webhook Examples",
+      "pages": ["webhook-reference/endpoint/postcall-webhook"]
     }
   ],
   "footerSocials": {
