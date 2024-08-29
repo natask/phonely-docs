@@ -76,105 +76,132 @@
         "type": "object",
         "properties": {
           "agentName": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the agent handling the call"
           },
           "formAnswersV2": {
             "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/FormAnswer"
-            }
+            },
+            "description": "Answers to form questions during the call"
           },
           "mentionedEmail": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address mentioned during the call"
           },
           "unansweredQuestions": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "List of questions that were not answered during the call"
           },
           "actionItems": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "List of action items identified during the call"
           },
           "followUpReason": {
-            "type": "string"
+            "type": "string",
+            "description": "Reason for any required follow-up"
           },
           "followUp": {
-            "type": "string"
+            "type": "string",
+            "description": "Indicator if follow-up is required"
           },
           "recordingUrl": {
-            "type": "string"
+            "type": "string",
+            "description": "URL to access the call recording"
           },
           "dashboardUrl": {
-            "type": "string"
+            "type": "string",
+            "description": "URL to access the call dashboard"
           },
           "purpose": {
-            "type": "string"
+            "type": "string",
+            "description": "Main purpose or topic of the call"
           },
           "sentiment": {
-            "type": "string"
+            "type": "string",
+            "description": "Overall sentiment of the call"
           },
           "transcriptText": {
-            "type": "string"
+            "type": "string",
+            "description": "Full text transcript of the call"
           },
           "callEnded": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Date string when the call ended"
           },
           "transcript": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TranscriptEntry"
-            }
+            },
+            "description": "Structured transcript of the call"
           },
           "mentionedDate": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "Any specific date mentioned during the call"
           },
           "businessPhoneNumber": {
-            "type": "string"
+            "type": "string",
+            "description": "Phone number of the agent"
           },
           "keyPoints": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "Key points or highlights from the call"
           },
           "topic": {
-            "type": "string"
+            "type": "string",
+            "description": "Main topic or category of the call"
           },
           "longSummary": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "Detailed summary of the call"
           },
           "callId": {
-            "type": "string"
+            "type": "string",
+            "description": "Unique identifier for the call"
           },
           "ai_success": {
-            "type": "string"
+            "type": "string",
+            "description": "Indicator of AI's success in handling the call"
           },
           "customerPhoneNumber": {
-            "type": "string"
+            "type": "string",
+            "description": "Phone number of the customer"
           },
           "callStarted": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Date string when the call started"
           },
           "callerName": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the caller"
           },
           "callDirection": {
-            "type": "string"
+            "type": "string",
+            "description": "Direction of the call (inbound/outbound)"
           },
           "mentionedTime": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "Any specific time mentioned during the call"
           },
           "summary": {
-            "type": "string"
+            "type": "string",
+            "description": "Brief summary of the call"
           }
         }
       },
@@ -182,13 +209,16 @@
         "type": "object",
         "properties": {
           "questionName": {
-            "type": "string"
+            "type": "string",
+            "description": "Name or identifier of the question"
           },
           "answer": {
-            "type": "string"
+            "type": "string",
+            "description": "Answer provided to the question"
           },
           "question": {
-            "type": "string"
+            "type": "string",
+            "description": "Full text of the question"
           }
         }
       },
@@ -196,10 +226,12 @@
         "type": "object",
         "properties": {
           "content": {
-            "type": "string"
+            "type": "string",
+            "description": "Content of the transcript entry"
           },
           "role": {
-            "type": "string"
+            "type": "string",
+            "description": "Role of the speaker (e.g., assistant, user)"
           }
         }
       },
@@ -207,10 +239,12 @@
         "type": "object",
         "properties": {
           "error": {
-            "type": "string"
+            "type": "string",
+            "description": "Error code or identifier"
           },
           "message": {
-            "type": "string"
+            "type": "string",
+            "description": "Detailed error message"
           }
         }
       }
