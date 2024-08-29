@@ -1,43 +1,33 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Phonely Agent API",
-    "description": "API for retrieving and duplicating agent information",
+    "title": "Call Summary API",
+    "description": "API for retrieving call summary information",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://app.phonely.ai/api"
+      "url": "https://api.example.com/v1"
     }
   ],
   "paths": {
-    "/get-agent": {
+    "/to_your_webhook_url": {
       "post": {
-        "summary": "Get agent information",
-        "description": "Retrieve agent information based on the provided user ID and agent ID",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AgentRequest"
-              }
-            }
-          }
-        },
+        "summary": "",
+        "description": "",
         "responses": {
           "200": {
             "description": "Successful response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AgentResponse"
+                  "$ref": "#/components/schemas/CallSummaryResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Invalid request",
+            "description": "Bad request",
             "content": {
               "application/json": {
                 "schema": {
@@ -46,8 +36,8 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized",
+          "404": {
+            "description": "Call not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -66,252 +56,150 @@
               }
             }
           }
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
-      }
-    },
-    "/duplicate-agent": {
-      "post": {
-        "summary": "Duplicate an agent",
-        "description": "Create a duplicate of an existing agent for the specified user",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DuplicateAgentRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DuplicateAgentResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
-      }
-    },
-    "/get-agents": {
-      "post": {
-        "summary": "Get agents information",
-        "description": "Retrieve information for all agents associated with the user",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GetAgentsRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AgentInfo"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
+        }
       }
     }
   },
   "components": {
     "schemas": {
-      "AgentRequest": {
+      "CallSummaryRequest": {
         "type": "object",
-        "required": ["uid", "agentId"],
+        "required": ["call_id"],
         "properties": {
-          "uid": {
+          "call_id": {
             "type": "string",
-            "description": "User ID"
-          },
-          "agentId": {
-            "type": "string",
-            "description": "Agent ID"
+            "description": "Unique identifier for the call"
           }
         }
       },
-      "AgentResponse": {
+      "CallSummaryResponse": {
         "type": "object",
         "properties": {
-          "uid": {
-            "type": "string",
-            "description": "User ID"
+          "agentName": {
+            "type": "string"
           },
-          "agentId": {
-            "type": "string",
-            "description": "Agent ID"
+          "formAnswersV2": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/FormAnswer"
+            }
           },
-          "name": {
-            "type": "string",
-            "description": "Agent name"
+          "mentionedEmail": {
+            "type": "string"
           },
-          "country": {
+          "unansweredQuestions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "actionItems": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "followUpReason": {
+            "type": "string"
+          },
+          "followUp": {
+            "type": "string"
+          },
+          "recordingUrl": {
+            "type": "string"
+          },
+          "dashboardUrl": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "sentiment": {
+            "type": "string"
+          },
+          "transcriptText": {
+            "type": "string"
+          },
+          "callEnded": {
             "type": "string",
-            "description": "Country code",
+            "format": "date-time"
+          },
+          "transcript": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TranscriptEntry"
+            }
+          },
+          "mentionedDate": {
+            "type": "string",
             "nullable": true
           },
           "businessPhoneNumber": {
-            "type": "string",
-            "description": "Business phone number",
-            "nullable": true
-          }
-        }
-      },
-      "DuplicateAgentRequest": {
-        "type": "object",
-        "required": ["uid", "agentId"],
-        "properties": {
-          "uid": {
-            "type": "string",
-            "description": "User ID"
+            "type": "string"
           },
-          "agentId": {
-            "type": "string",
-            "description": "Agent ID to be duplicated"
-          }
-        }
-      },
-      "DuplicateAgentResponse": {
-        "type": "object",
-        "properties": {
-          "uid": {
-            "type": "string",
-            "description": "User ID"
+          "keyPoints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
-          "agentId": {
-            "type": "string",
-            "description": "New duplicated Agent ID"
+          "topic": {
+            "type": "string"
           },
-          "name": {
+          "longSummary": {
             "type": "string",
-            "description": "New duplicated Agent name"
-          }
-        }
-      },
-      "GetAgentsRequest": {
-        "type": "object",
-        "required": ["uid"],
-        "properties": {
-          "uid": {
-            "type": "string",
-            "description": "User ID"
-          }
-        }
-      },
-      "AgentInfo": {
-        "type": "object",
-        "properties": {
-          "uid": {
-            "type": "string",
-            "description": "User ID"
-          },
-          "agentId": {
-            "type": "string",
-            "description": "Agent ID"
-          },
-          "name": {
-            "type": "string",
-            "description": "Agent name"
-          },
-          "country": {
-            "type": "string",
-            "description": "Country code",
             "nullable": true
           },
-          "businessPhoneNumber": {
+          "callId": {
+            "type": "string"
+          },
+          "ai_success": {
+            "type": "string"
+          },
+          "customerPhoneNumber": {
+            "type": "string"
+          },
+          "callStarted": {
             "type": "string",
-            "description": "Business phone number",
+            "format": "date-time"
+          },
+          "callerName": {
+            "type": "string"
+          },
+          "callDirection": {
+            "type": "string"
+          },
+          "mentionedTime": {
+            "type": "string",
             "nullable": true
+          },
+          "summary": {
+            "type": "string"
+          }
+        }
+      },
+      "FormAnswer": {
+        "type": "object",
+        "properties": {
+          "questionName": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string"
+          }
+        }
+      },
+      "TranscriptEntry": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
           }
         }
       },
@@ -319,17 +207,12 @@
         "type": "object",
         "properties": {
           "error": {
-            "type": "string",
-            "description": "Error message"
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
           }
         }
-      }
-    },
-    "securitySchemes": {
-      "ApiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "X-Authorization"
       }
     }
   }

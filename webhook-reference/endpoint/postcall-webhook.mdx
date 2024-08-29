@@ -1,6 +1,6 @@
 ---
 title: "Post Call Webhook"
-openapi: "WEBHOOK /postcall-webhook"
+openapi: "POST /to_your_webhook_url"
 ---
 
 ## Overview
@@ -10,37 +10,6 @@ The post call webhook allows you to receive real-time notifications after each c
 ## Request Format
 
 When a call ends, our system will send a POST request to your configured URL. The request body will contain data in JSON format.
-
-## Request Body Fields
-
-| Field Name          | Type    | Description                        |
-| ------------------- | ------- | ---------------------------------- |
-| businessPhoneNumber | string  | Business phone number              |
-| customerPhoneNumber | string  | Customer phone number              |
-| agentName           | string  | Agent's name                       |
-| transcript          | array   | Call transcript messages           |
-| summary             | string  | Brief call summary                 |
-| longSummary         | string  | Detailed call summary              |
-| ai_success          | boolean | Whether AI analysis was successful |
-| sentiment           | string  | Sentiment analysis result          |
-| topic               | string  | Call topic                         |
-| purpose             | string  | Call purpose                       |
-| keyPoints           | array   | List of key points                 |
-| mentionedDate       | string  | Date mentioned in the call         |
-| mentionedTime       | string  | Time mentioned in the call         |
-| mentionedEmail      | string  | Email mentioned in the call        |
-| callerName          | string  | Caller's name                      |
-| unansweredQuestions | array   | List of unanswered questions       |
-| followUp            | boolean | Whether follow-up is needed        |
-| followUpReason      | string  | Reason for follow-up               |
-| actionItems         | array   | List of action items               |
-| callDirection       | string  | Call direction                     |
-| recordingUrl        | string  | URL of the call recording          |
-| transcriptText      | string  | Full transcript text               |
-| callStarted         | string  | Call start time                    |
-| callEnded           | string  | Call end time                      |
-| dashboardUrl        | string  | Call details url                   |
-| callId              | string  | Call ID                            |
 
 ## Security Considerations
 
