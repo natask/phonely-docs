@@ -501,11 +501,7 @@
             "type": "string",
             "description": "Full text transcript of the call"
           },
-          "callEnded": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Date string when the call ended"
-          },
+
           "transcript": {
             "type": "array",
             "items": {
@@ -555,6 +551,15 @@
             "format": "date-time",
             "description": "Date string when the call started"
           },
+          "callEnded": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date string when the call ended"
+          },
+          "duration": {
+            "type": "number",
+            "description": "Duration of the call in seconds"
+          },
           "callerName": {
             "type": "string",
             "description": "Name of the caller"
@@ -571,6 +576,10 @@
           "summary": {
             "type": "string",
             "description": "Brief summary of the call"
+          },
+          "endedReason": {
+            "type": "string",
+            "description": "Reason for the call ending"
           }
         }
       },
