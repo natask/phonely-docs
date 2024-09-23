@@ -203,6 +203,72 @@
         ]
       }
     },
+    "/get-call": {
+      "post": {
+        "summary": "Get agents information",
+        "description": "Retrieve information for all agents associated with the user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetCallRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CallSummaryResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/to_your_webhook_url": {
       "post": {
         "summary": "",
@@ -336,6 +402,24 @@
           }
         }
       },
+      "GetCallRequest": {
+        "type": "object",
+        "required": ["uid", "agentId", "callId"],
+        "properties": {
+          "uid": {
+            "type": "string",
+            "description": "User ID"
+          },
+          "agentId": {
+            "type": "string",
+            "description": "Agent ID to be duplicated"
+          },
+          "callId": {
+            "type": "string",
+            "description": "Call ID"
+          }
+        }
+      },
       "AgentInfo": {
         "type": "object",
         "properties": {
@@ -370,15 +454,9 @@
             "type": "string",
             "description": "Name of the agent handling the call"
           },
-          "formAnswersV2": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/FormAnswer"
-            },
-            "description": "Answers to form questions during the call"
-          },
           "mentionedEmail": {
             "type": "string",
+            "nullable": true,
             "description": "Email address mentioned during the call"
           },
           "unansweredQuestions": {
@@ -493,23 +571,6 @@
           "summary": {
             "type": "string",
             "description": "Brief summary of the call"
-          }
-        }
-      },
-      "FormAnswer": {
-        "type": "object",
-        "properties": {
-          "questionName": {
-            "type": "string",
-            "description": "Name or identifier of the question"
-          },
-          "answer": {
-            "type": "string",
-            "description": "Answer provided to the question"
-          },
-          "question": {
-            "type": "string",
-            "description": "Full text of the question"
           }
         }
       },
