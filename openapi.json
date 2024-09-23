@@ -408,15 +408,15 @@
         "properties": {
           "uid": {
             "type": "string",
-            "description": "User ID"
+            "description": "User ID (can be retrieved from the user settings page)"
           },
           "agentId": {
             "type": "string",
-            "description": "Agent ID to be duplicated"
+            "description": "Agent ID (can be retrieved from the agent settings page)"
           },
           "callId": {
             "type": "string",
-            "description": "Call ID"
+            "description": "Call ID (can be retrieved from the call history page)"
           }
         }
       },
