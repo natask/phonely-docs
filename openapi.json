@@ -205,8 +205,8 @@
     },
     "/get-call": {
       "post": {
-        "summary": "Get agents information",
-        "description": "Retrieve information for all agents associated with the user",
+        "summary": "Get call information",
+        "description": "Retrieve information for a specific call",
         "requestBody": {
           "required": true,
           "content": {
