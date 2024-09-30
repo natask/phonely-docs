@@ -83,6 +83,10 @@
       ]
     },
     {
+      "group": "Webhook Reference",
+      "pages": ["webhook-reference/introduction"]
+    },
+    {
       "group": "Webhook Examples",
       "pages": ["webhook-reference/endpoint/postcall-webhook"]
     }
