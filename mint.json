@@ -18,7 +18,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:help@phonely.ai"
+      "url": "mailto:support@phonely.ai"
     },
     {
       "name": "Community",
@@ -36,9 +36,9 @@
       "url": "https://app.phonely.ai"
     },
     {
-      "name": "No-Code Help Center",
-      "icon": "book-open",
-      "url": "no-code-help"
+      "name": "Platform Help Center",
+      "icon": "circle-question",
+      "url": "https://help.phonely.ai"
     },
     {
       "name": "Community",
@@ -62,24 +62,16 @@
     {
       "name": "Webhook Reference",
       "url": "webhook-reference"
-    },
-    {
-      "name": "No-Code Guide",
-      "url": "no-code-help"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "concepts"]
-    },
-    {
-      "group": "No-Code Solutions",
-      "pages": ["no-code-help/dashboard", "no-code-help/inbound-calls", "no-code-help/outbound-calls"]
+      "pages": ["introduction"]
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/introduction", "api-reference/authentication"]
+      "pages": ["api-reference/introduction"]
     },
     {
       "group": "Endpoint Examples",
@@ -93,10 +85,6 @@
     {
       "group": "Webhook Examples",
       "pages": ["webhook-reference/endpoint/postcall-webhook"]
-    },
-    {
-      "group": "Guides",
-      "pages": ["guides/integration", "guides/best-practices", "guides/troubleshooting"]
     }
   ],
   "footerSocials": {
