@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Phonely Documentation",
   "logo": {
     "dark": "/logo/logo-white.png",
     "light": "/logo/logo.png"
@@ -19,11 +19,40 @@
     {
       "name": "Support",
       "url": "mailto:help@phonely.ai"
+    },
+    {
+      "name": "Community",
+      "url": "https://discord.gg/BMHPUaZG37"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
     "url": "https://app.phonely.ai"
+  },
+  "anchors": [
+    {
+      "name": "Dashboard",
+      "icon": "gauge",
+      "url": "https://app.phonely.ai"
+    },
+    {
+      "name": "No-Code Help Center",
+      "icon": "book-open",
+      "url": "no-code-help"
+    },
+    {
+      "name": "Community",
+      "icon": "users",
+      "url": "https://discord.gg/BMHPUaZG37"
+    },
+    {
+      "name": "API Reference",
+      "icon": "code",
+      "url": "api-reference"
+    }
+  ],
+  "primaryTab": {
+    "name": "Home"
   },
   "tabs": [
     {
@@ -33,18 +62,24 @@
     {
       "name": "Webhook Reference",
       "url": "webhook-reference"
+    },
+    {
+      "name": "No-Code Guide",
+      "url": "no-code-help"
     }
   ],
-  "anchors": [],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction"]
+      "pages": ["introduction", "quickstart", "concepts"]
     },
-
+    {
+      "group": "No-Code Solutions",
+      "pages": ["no-code-help/dashboard", "no-code-help/inbound-calls", "no-code-help/outbound-calls"]
+    },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
+      "pages": ["api-reference/introduction", "api-reference/authentication"]
     },
     {
       "group": "Endpoint Examples",
@@ -58,9 +93,14 @@
     {
       "group": "Webhook Examples",
       "pages": ["webhook-reference/endpoint/postcall-webhook"]
+    },
+    {
+      "group": "Guides",
+      "pages": ["guides/integration", "guides/best-practices", "guides/troubleshooting"]
     }
   ],
   "footerSocials": {
-    "linkedin": "https://www.linkedin.com/company/phonely-ai"
+    "linkedin": "https://www.linkedin.com/company/phonely-ai",
+    "discord": "https://discord.gg/BMHPUaZG37"
   }
 }
