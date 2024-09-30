@@ -1,0 +1,75 @@
+# Post-Call Webhook
+
+The post-call webhook delivers real-time notifications and detailed call data after each call ends, enabling powerful integrations and analytics.
+
+<Card title="Key Benefits" icon="star">
+  - Real-time call data delivery
+  - Rich insights for business intelligence
+  - Seamless integration with existing systems
+  - Enables automated workflows and actions
+</Card>
+
+## Webhook Data
+
+<AccordionGroup>
+  <Accordion title="Call Metadata">
+    - Call duration
+    - Caller and recipient information
+    - Call status (completed, dropped, etc.)
+  </Accordion>
+  <Accordion title="Conversation Analysis">
+    - Sentiment analysis
+    - Key topics discussed
+    - Action items identified
+  </Accordion>
+  <Accordion title="Agent Performance">
+    - Response times
+    - Adherence to script
+    - Customer satisfaction indicators
+  </Accordion>
+</AccordionGroup>
+
+## Common Use Cases
+
+<CardGroup cols={2}>
+  <Card title="CRM Integration" icon="building">
+    Automatically update customer records with call outcomes and next steps.
+  </Card>
+  <Card title="Quality Assurance" icon="clipboard-check">
+    Flag calls for review based on predefined criteria or sentiment analysis.
+  </Card>
+  <Card title="Automated Follow-ups" icon="paper-plane">
+    Trigger follow-up actions based on call content or outcomes.
+  </Card>
+  <Card title="Performance Analytics" icon="chart-line">
+    Feed data into analytics tools for agent performance tracking and training.
+  </Card>
+</CardGroup>
+
+## Security Considerations
+
+<Warning>
+  To ensure the security of your webhook:
+  - Use HTTPS URLs for your endpoint
+  - Implement proper authentication
+  - Regularly rotate your webhook secrets
+</Warning>
+
+## Configuring the Webhook
+
+<Steps>
+  <Step title="Navigate to Settings">
+    Go to "Agent" > "Setting" > "General" in your control panel
+  </Step>
+  <Step title="Find Webhook Section">
+    Locate the "Webhook" section
+  </Step>
+  <Step title="Enter Webhook URL">
+    Input your secure HTTPS webhook URL
+  </Step>
+  <Step title="Save Configuration">
+    Click "Save" to activate your webhook
+  </Step>
+</Steps>
+
+For detailed API specifications and data schemas, refer to our [API Documentation](/api-reference/introduction).
