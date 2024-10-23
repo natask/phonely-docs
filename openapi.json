@@ -269,6 +269,69 @@
         ]
       }
     },
+    "/import-number": {
+      "post": {
+        "summary": "Import number",
+        "description": "Import a Twilio phone number to an agent",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportNumberRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportNumberResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/to_your_webhook_url": {
       "post": {
         "summary": "",
@@ -593,6 +656,49 @@
           "role": {
             "type": "string",
             "description": "Role of the speaker (e.g., assistant, user)"
+          }
+        }
+      },
+      "ImportNumberRequest": {
+        "type": "object",
+        "required": ["uid", "agentId", "source", "twilioAccountSid", "twilioAuthToken", "phoneNumber", "countryCode"],
+        "properties": {
+          "uid": {
+            "type": "string",
+            "description": "User ID"
+          },
+          "agentId": {
+            "type": "string",
+            "description": "Agent ID (agent should not have a phone number assigned yet)"
+          },
+          "source": {
+            "type": "string",
+            "description": "Phone number source (currently only supports 'twilio')"
+          },
+          "twilioAccountSid": {
+            "type": "string",
+            "description": "Twilio account SID"
+          },
+          "twilioAuthToken": {
+            "type": "string",
+            "description": "Twilio auth token"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "description": "Phone number to import"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "Country code of the phone number, ISO 3166-1 alpha-2 format"
+          }
+        }
+      },
+      "ImportNumberResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Message indicating the result of the operation"
           }
         }
       },
