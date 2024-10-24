@@ -685,7 +685,7 @@
           },
           "phoneNumber": {
             "type": "string",
-            "description": "Phone number to import"
+            "description": "Phone number to import, includes country code. i.e +10123456789"
           },
           "countryCode": {
             "type": "string",
