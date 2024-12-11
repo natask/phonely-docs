@@ -81,7 +81,8 @@
         "api-reference/endpoint/duplicate-agent",
         "api-reference/endpoint/get-call",
         "api-reference/endpoint/import-number",
-        "api-reference/endpoint/list-voices"
+        "api-reference/endpoint/list-voices",
+        "api-reference/endpoint/update-agent-voice"
       ]
     },
     {

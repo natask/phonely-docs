@@ -363,6 +363,75 @@
         }
       }
     },
+    "/update-agent-voice": {
+      "post": {
+        "summary": "Update agent's voice",
+        "description": "Update the text-to-speech voice for a specific agent",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAgentVoiceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Voice updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Indicates if the update was successful"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request or voice ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/to_your_webhook_url": {
       "post": {
         "summary": "",
@@ -766,6 +835,24 @@
           "isMultiLingualSupport": {
             "type": "boolean",
             "description": "Whether the voice supports multiple languages"
+          }
+        }
+      },
+      "UpdateAgentVoiceRequest": {
+        "type": "object",
+        "required": ["uid", "agentId", "voiceId"],
+        "properties": {
+          "uid": {
+            "type": "string",
+            "description": "User ID"
+          },
+          "agentId": {
+            "type": "string",
+            "description": "Agent ID to update"
+          },
+          "voiceId": {
+            "type": "string",
+            "description": "ID of the voice to assign to the agent"
           }
         }
       },
