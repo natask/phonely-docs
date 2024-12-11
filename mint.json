@@ -82,7 +82,8 @@
         "api-reference/endpoint/get-call",
         "api-reference/endpoint/import-number",
         "api-reference/endpoint/list-voices",
-        "api-reference/endpoint/update-agent-voice"
+        "api-reference/endpoint/update-agent-voice",
+        "api-reference/endpoint/report-call-error"
       ]
     },
     {

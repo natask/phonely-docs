@@ -432,6 +432,85 @@
         }
       }
     },
+    "/report-call-error": {
+      "post": {
+        "summary": "Report an issue with a call",
+        "description": "Submit an error report for a specific call with feedback and suggestions",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportCallErrorRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Error report submitted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Indicates if the report was submitted successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Call or agent not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/to_your_webhook_url": {
       "post": {
         "summary": "",
@@ -853,6 +932,33 @@
           "voiceId": {
             "type": "string",
             "description": "ID of the voice to assign to the agent"
+          }
+        }
+      },
+      "ReportCallErrorRequest": {
+        "type": "object",
+        "required": ["uid", "agentId", "callId", "email", "reason"],
+        "properties": {
+          "uid": {
+            "type": "string",
+            "description": "User ID"
+          },
+          "agentId": {
+            "type": "string",
+            "description": "ID of the agent involved in the call"
+          },
+          "callId": {
+            "type": "string",
+            "description": "ID of the call being reported"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Email address for feedback communication"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Detailed explanation of the issue or feedback"
           }
         }
       },
