@@ -332,6 +332,37 @@
         ]
       }
     },
+    "/list-voices": {
+      "get": {
+        "summary": "List available voices",
+        "description": "Get a list of all available voices for your agent",
+        "responses": {
+          "200": {
+            "description": "List of available voices",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Voice"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }，
     "/to_your_webhook_url": {
       "post": {
         "summary": "",
@@ -699,6 +730,42 @@
           "message": {
             "type": "string",
             "description": "Message indicating the result of the operation"
+          }
+        }
+      },
+      "Voice": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the voice"
+          },
+          "ttsId": {
+            "type": "string",
+            "description": "TTS identifier for the voice, use for set agent's voice"
+          },
+          "gender": {
+            "type": "string",
+            "description": "Gender of the voice"
+          },
+          "language": {
+            "type": "string",
+            "description": "Support language of the voice"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Feature tags associated with the voice"
+          },
+          "accent": {
+            "type": "string",
+            "description": "Accent of the voice"
+          },
+          "isMultiLingualSupport": {
+            "type": "boolean",
+            "description": "Whether the voice supports multiple languages"
           }
         }
       },
