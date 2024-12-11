@@ -740,9 +740,9 @@
             "type": "string",
             "description": "Name of the voice"
           },
-          "ttsId": {
+          "id": {
             "type": "string",
-            "description": "TTS identifier for the voice, use for set agent's voice"
+            "description": "unique voice id, use for set agent's voice"
           },
           "gender": {
             "type": "string",
