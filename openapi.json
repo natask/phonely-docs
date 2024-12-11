@@ -366,7 +366,7 @@
     "/update-agent-voice": {
       "post": {
         "summary": "Update agent's voice",
-        "description": "Update the text-to-speech voice for a specific agent",
+        "description": "Update the for a specific agent",
         "security": [
           {
             "ApiKeyAuth": []
