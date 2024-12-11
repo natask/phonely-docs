@@ -362,7 +362,7 @@
           }
         }
       }
-    }，
+    },
     "/to_your_webhook_url": {
       "post": {
         "summary": "",
