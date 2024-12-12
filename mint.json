@@ -84,7 +84,8 @@
         "api-reference/endpoint/list-voices",
         "api-reference/endpoint/update-agent-voice",
         "api-reference/endpoint/report-call-error",
-        "api-reference/endpoint/agent-documents"
+        "api-reference/endpoint/agent-documents",
+        "api-reference/endpoint/post-agent-documents"
       ]
     },
     {
