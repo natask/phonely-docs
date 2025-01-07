@@ -363,10 +363,10 @@
         }
       }
     },
-    "/update-agent-voice": {
+    "/update-agent": {
       "post": {
-        "summary": "Update agent's voice",
-        "description": "Update the for a specific agent",
+        "summary": "Update agent's setup",
+        "description": "Update the setup for a specific agent",
         "security": [
           {
             "ApiKeyAuth": []
@@ -377,14 +377,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateAgentVoiceRequest"
+                "$ref": "#/components/schemas/UpdateAgentRequest"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Voice updated successfully",
+            "description": "Agent updated successfully",
             "content": {
               "application/json": {
                 "schema": {
@@ -400,7 +400,7 @@
             }
           },
           "400": {
-            "description": "Invalid request or voice ID",
+            "description": "Invalid request body",
             "content": {
               "application/json": {
                 "schema": {
@@ -1179,9 +1179,9 @@
           }
         }
       },
-      "UpdateAgentVoiceRequest": {
+      "UpdateAgentRequest": {
         "type": "object",
-        "required": ["uid", "agentId", "voiceId"],
+        "required": ["uid", "agentId"],
         "properties": {
           "uid": {
             "type": "string",
@@ -1194,6 +1194,10 @@
           "voiceId": {
             "type": "string",
             "description": "ID of the voice to assign to the agent"
+          },
+          "agentName": {
+            "type": "string",
+            "description": "Name of the agent, limited to 50 characters"
           }
         }
       },
