@@ -639,6 +639,12 @@
                   "properties": {
                     "message": {
                       "type": "string"
+                    },
+                    "documentIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
                     }
                   }
                 }
@@ -1198,6 +1204,18 @@
           "agentName": {
             "type": "string",
             "description": "Name of the agent, limited to 50 characters"
+          },
+          "greetingMessage": {
+            "type": "string",
+            "description": "Greeting message to be used when the agent is called, limited to 200 characters"
+          },
+          "humanizeConversation": {
+            "type": "boolean",
+            "description": "Add a vocal ticks such as hmm, umm etc. to your conversation."
+          },
+          "conversationStyle": {
+            "type": "string",
+            "description": "'Casual' | 'Humorous' | 'Direct' | 'Formal' | 'Persuasive' | 'Friendly'"
           }
         }
       },
