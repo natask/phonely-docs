@@ -1207,7 +1207,7 @@
           },
           "greetingMessage": {
             "type": "string",
-            "description": "Greeting message to be used when the agent is called, limited to 200 characters"
+            "description": "Greeting message to be used when the agent is called, limited to 500 characters"
           },
           "humanizeConversation": {
             "type": "boolean",
