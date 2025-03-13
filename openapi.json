@@ -146,11 +146,78 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/GetAgentsRequest"
+                "$ref": "#/components/schemas/GetOrgsRequest"
               }
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrgInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/get-orgs": {
+      "post": {
+        "summary": "Get organizations information",
+        "description": "Retrieve information for all organizations associated with the user",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "User ID"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -912,6 +979,16 @@
           }
         }
       },
+      "GetOrgsRequest": {
+        "type": "object",
+        "required": ["uid"],
+        "properties": {
+          "uid": {
+            "type": "string",
+            "description": "User ID"
+          }
+        }
+      },
       "GetCallRequest": {
         "type": "object",
         "required": ["uid", "agentId", "callId"],
@@ -955,6 +1032,19 @@
             "description": "Business phone number",
             "nullable": true
           }
+        }
+      },
+      "OrgInfo": {
+        "type": "object",
+        "properties": {
+          "orgId": {
+            "type": "string",
+            "description": "Organization ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Organization name"
+          },
         }
       },
       "CallSummaryResponse": {

@@ -78,6 +78,7 @@
       "pages": [
         "api-reference/endpoint/get-agent",
         "api-reference/endpoint/get-agents",
+        "api-reference/endpoint/get-orgs",
         "api-reference/endpoint/duplicate-agent",
         "api-reference/endpoint/get-call",
         "api-reference/endpoint/import-number",
