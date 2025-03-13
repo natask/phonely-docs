@@ -204,7 +204,7 @@
       }
     },
     "/get-orgs": {
-      "post": {
+      "get": {
         "summary": "Get organizations information",
         "description": "Retrieve information for all organizations associated with the user",
         "parameters": [
