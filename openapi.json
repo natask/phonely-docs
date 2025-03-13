@@ -1197,6 +1197,10 @@
             "type": "string",
             "description": "Agent ID to update"
           },
+          "orgId": {
+            "type": "string",
+            "description": "Organization ID to update"
+          },
           "voiceId": {
             "type": "string",
             "description": "ID of the voice to assign to the agent"
