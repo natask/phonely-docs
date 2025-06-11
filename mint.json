@@ -87,7 +87,10 @@
         "api-reference/endpoint/report-call-error",
         "api-reference/endpoint/agent-documents",
         "api-reference/endpoint/post-agent-documents",
-        "api-reference/endpoint/delete-agent-documents"
+        "api-reference/endpoint/delete-agent-documents",
+        "api-reference/endpoint/agent-websites",
+        "api-reference/endpoint/post-agent-websites",
+        "api-reference/endpoint/delete-agent-websites"
       ]
     },
     {

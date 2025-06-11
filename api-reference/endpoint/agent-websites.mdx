@@ -1,0 +1,41 @@
+---
+title: "List agent websites"
+openapi: "GET /agent-websites"
+---
+
+## Overview
+
+Retrieve all websites associated with a specific agent's knowledge base. This endpoint returns a list of crawled websites that have been added to the agent for knowledge retrieval purposes.
+
+## Authentication
+
+This endpoint requires API key authentication via the `X-Authorization` header.
+
+## Use Cases
+
+- View all websites in an agent's knowledge base
+- Manage website content for agent responses
+- Audit and organize knowledge base sources
+- Monitor website crawling status
+
+## Response Format
+
+The response includes an array of website objects, each containing:
+
+- **id**: Unique website identifier
+- **agentId**: Associated agent ID
+- **name**: Website title or name
+- **url**: Original website URL
+- **active**: Whether the website is active in the knowledge base
+- **content**: Processed website content (JSON format)
+- **contentMD**: Website content in Markdown format
+- **lastUpdatedBy**: User who last updated the website
+- **lastUpdatedAt**: Timestamp of last update
+
+## Error Handling
+
+The endpoint returns standard HTTP status codes:
+
+- `400`: Invalid search parameters
+- `401`: Unauthorized (invalid API key or insufficient permissions)
+- `500`: Internal server error
