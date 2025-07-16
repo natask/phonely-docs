@@ -1179,6 +1179,111 @@
           }
         }
       }
+    },
+    "/usage": {
+      "get": {
+        "summary": "Get usage data",
+        "description": "Retrieves usage data for all agents accessible by a user within a date range. If agentId is provided, returns data for that specific agent only. Requires X-Authorization header with valid API key.",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "User ID"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "description": "Start date in YYYY-MM-DD format"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "description": "End date in YYYY-MM-DD format"
+          },
+          {
+            "name": "agentId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional agent ID to filter data for specific agent"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request - Missing required parameters or invalid date format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User or agent not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -1330,7 +1435,7 @@
           "name": {
             "type": "string",
             "description": "Organization name"
-          },
+          }
         }
       },
       "CallSummaryResponse": {
@@ -1715,6 +1820,96 @@
             "description": "Detailed error message"
           }
         }
+      },
+      "UsageResponse": {
+        "type": "object",
+        "properties": {
+          "summary": {
+            "type": "object",
+            "properties": {
+              "totalCallCount": {
+                "type": "integer",
+                "description": "Total number of calls"
+              },
+              "totalCallMinutes": {
+                "type": "number",
+                "description": "Total call duration in minutes"
+              },
+              "agentCount": {
+                "type": "integer",
+                "description": "Number of agents"
+              },
+              "orgCount": {
+                "type": "integer",
+                "description": "Number of organizations"
+              }
+            },
+            "required": ["totalCallCount", "totalCallMinutes", "agentCount", "orgCount"],
+            "description": "Summary statistics for the usage data"
+          },
+          "agents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentUsage"
+            },
+            "description": "Usage data for each agent"
+          },
+          "dateRange": {
+            "type": "object",
+            "properties": {
+              "startDate": {
+                "type": "string",
+                "format": "date",
+                "description": "Start date of the query range"
+              },
+              "endDate": {
+                "type": "string",
+                "format": "date",
+                "description": "End date of the query range"
+              }
+            },
+            "required": ["startDate", "endDate"],
+            "description": "Date range for the usage data"
+          },
+          "requestedAgentId": {
+            "type": "string",
+            "description": "Agent ID that was specifically requested (only present when agentId parameter was provided)",
+            "nullable": true
+          }
+        },
+        "required": ["summary", "agents", "dateRange"]
+      },
+      "AgentUsage": {
+        "type": "object",
+        "properties": {
+          "agentId": {
+            "type": "string",
+            "description": "Agent ID"
+          },
+          "agentName": {
+            "type": "string",
+            "description": "Agent name"
+          },
+          "orgId": {
+            "type": "string",
+            "description": "Organization ID",
+            "nullable": true
+          },
+          "orgName": {
+            "type": "string",
+            "description": "Organization name",
+            "nullable": true
+          },
+          "callCount": {
+            "type": "integer",
+            "description": "Number of calls for this agent"
+          },
+          "callMinutes": {
+            "type": "number",
+            "description": "Total call duration in minutes for this agent"
+          }
+        },
+        "required": ["agentId", "agentName", "callCount", "callMinutes"]
       }
     },
     "securitySchemes": {
