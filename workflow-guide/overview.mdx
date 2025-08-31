@@ -1,0 +1,239 @@
+---
+title: 'Overview'
+description: 'Complete guide to building AI-powered phone agents with Flows'
+---
+
+# Overview
+
+## Introduction
+
+### What are Flows?
+
+Flows are visual conversation builders that allow you to create AI-powered phone agents. Think of a Flow as a blueprint for how your AI agent will interact with callers - from the moment they dial in until the call ends.
+
+**Key Components:**
+- **Blocks**: Individual components that perform specific actions (talk, collect information, make API calls, etc.)
+- **Edges**: Connections between blocks that define the conversation path
+- **Variables**: Dynamic data that flows through your conversation
+
+**Why Use Flows?**
+- **No Coding Required**: Visual drag-and-drop interface
+- **Real-time Conversations**: Handle dynamic, natural conversations
+- **Scalable**: Handle thousands of calls simultaneously
+- **Integrations**: Connect with your existing systems and APIs
+
+### How to Navigate This Guide
+
+This guide is organized to help you understand Flows from basic concepts to advanced features:
+
+1. **Start with Core Concepts** - Learn the fundamental building blocks
+2. **Explore Individual Blocks** - Understand each component in detail
+3. **Apply Testing & Best Practices** - Ensure your flows work perfectly
+
+Use the left sidebar to jump to any section, or the right sidebar to navigate within the current section.
+
+---
+
+## Core Concepts
+
+### How to Change Flows
+
+**Editing Your Flow:**
+1. **Enter Edit Mode**: Click the "Edit" button in your flow builder
+2. **Add Blocks**: Drag blocks from the left sidebar to your canvas
+3. **Configure Blocks**: Click any block to open its settings panel
+4. **Connect Blocks**: Draw edges between blocks to define conversation flow
+5. **Save Changes**: Click "Save" to preserve your work
+
+**Version Control:**
+- Each save creates a new version of your flow
+- You can revert to previous versions if needed
+- Test changes before publishing to production
+
+### Connecting Blocks Using Edges
+
+**Edges** are the lines that connect your blocks and define how conversations flow:
+
+**Creating Edges:**
+- Click and drag from a block's output port (right side)
+- Release on another block's input port (left side)
+- The connection line shows the conversation path
+
+**Types of Edges:**
+- **Success Edge**: Default path when a block completes successfully
+- **Error Edge**: Path taken when a block encounters an error
+- **Conditional Edges**: Paths based on specific conditions (used with Filter blocks)
+
+**Edge Configuration:**
+- Click on any edge to add conditions or labels
+- Set priority for multiple edges from the same block
+- Add custom labels for better flow readability
+
+### Call Variables
+
+**What Are Call Variables?**
+Call variables are dynamic data containers that store information throughout a call session. They're like memory for your AI agent.
+
+**Types of Variables:**
+- **User Input**: Information collected from the caller
+- **System Data**: Call metadata, timestamps, phone numbers
+- **API Responses**: Data retrieved from external services
+- **Calculated Values**: Results from code blocks or processing
+
+**How to Use Variables:**
+1. **Setting Variables**:
+   - Use Collect blocks to gather user input
+   - Use Code blocks to perform calculations
+   - Use API Request blocks to fetch external data
+
+2. **Accessing Variables**:
+   - Reference in Talk blocks: `{{variable_name}}`
+   - Use in conditions: `{{variable_name}} == "value"`
+   - Pass to API requests as parameters
+
+3. **Variable Types**:
+   - **String**: Text data
+   - **Number**: Numeric values
+   - **Boolean**: True/false values
+   - **Array**: Lists of values
+   - **Object**: Complex data structures
+
+### Call Outcome Tagging
+
+**Purpose:**
+Call outcome tagging allows you to categorize and analyze call results for better insights and automation.
+
+**How It Works:**
+1. **Automatic Tagging**: System tags calls as "Completed", "Failed", "Transferred", etc.
+2. **Custom Tags**: Use End Call blocks to set custom outcome tags
+3. **Conditional Tagging**: Tag outcomes based on specific conditions or variables
+
+**Common Outcome Tags:**
+- `appointment_scheduled`
+- `lead_qualified`
+- `customer_satisfied`
+- `escalation_needed`
+- `no_show_followup`
+
+**Benefits:**
+- **Analytics**: Track success rates and common outcomes
+- **Reporting**: Generate insights on call performance
+- **Automation**: Trigger different post-call actions based on outcomes
+
+---
+
+## Testing & Best Practices
+
+### Testing Your Flows
+
+**Simulation Testing:**
+1. **Call Recording Upload**: Upload existing call recordings to test flow logic
+2. **Variable Simulation**: Set test values for call variables
+3. **Path Testing**: Verify all conversation paths work correctly
+4. **Error Testing**: Test error handling and fallback scenarios
+
+**Live Testing:**
+1. **Test Phone Numbers**: Use dedicated test numbers for development
+2. **Real-time Monitoring**: Watch calls in real-time dashboard
+3. **Performance Metrics**: Monitor response times and success rates
+4. **A/B Testing**: Compare different flow versions
+
+### Best Practices for Flow Design
+
+**Conversation Design:**
+- **Keep it Natural**: Design conversations that feel human and engaging
+- **Provide Clear Options**: Give callers clear choices and next steps
+- **Handle Interruptions**: Plan for callers who interrupt or change topics
+- **Use Confirmation**: Verify important information before proceeding
+
+**Technical Best Practices:**
+- **Test Thoroughly**: Test all paths and edge cases
+- **Monitor Performance**: Track call success rates and user satisfaction
+- **Plan for Errors**: Always have fallback options for failures
+- **Document Your Flows**: Keep clear documentation of flow logic
+
+**Variable Management:**
+- **Use Descriptive Names**: Name variables clearly and consistently
+- **Validate Input**: Always validate user input before using it
+- **Handle Missing Data**: Plan for scenarios where variables might be empty
+- **Clean Up Variables**: Remove sensitive data when no longer needed
+
+### Common Patterns and Workflows
+
+**Customer Service Pattern:**
+1. Start Call → Welcome and identify caller
+2. Collect → Understand the issue
+3. Filter → Route based on issue type
+4. API Request → Check account/order status
+5. Talk → Provide information or solution
+6. Question → Ask if issue is resolved
+7. Filter → Route to human if needed
+8. End Call → Thank and summarize
+
+**Appointment Booking Pattern:**
+1. Start Call → Welcome and identify caller
+2. Collect → Get appointment preferences
+3. API Request → Check availability
+4. Question → Confirm appointment details
+5. API Request → Book appointment
+6. Send SMS → Send confirmation
+7. End Call → Thank and confirm
+
+**Lead Qualification Pattern:**
+1. Start Call → Welcome and introduce purpose
+2. Collect → Gather lead information
+3. Question → Assess interest level
+4. Filter → Route based on qualification
+5. Transfer → Connect to sales if qualified
+6. End Call → Thank and follow up
+
+### Troubleshooting Guide
+
+**Common Issues and Solutions:**
+
+**Flow Not Responding:**
+- Check block connections and edges
+- Verify all required variables are set
+- Test individual blocks for errors
+- Check API endpoints and authentication
+
+**Poor Call Quality:**
+- Review Talk block configurations
+- Test with different voice options
+- Check speech rate and clarity
+- Verify variable interpolation
+
+**Transfer Failures:**
+- Confirm transfer destinations are correct
+- Test fallback options
+- Check transfer message timing
+- Verify agent availability
+
+**Variable Issues:**
+- Check variable naming and spelling
+- Verify variables are set before use
+- Test variable interpolation in Talk blocks
+- Validate data types and formats
+
+**API Integration Problems:**
+- Test API endpoints independently
+- Verify authentication credentials
+- Check request/response formats
+- Monitor API rate limits and timeouts
+
+---
+
+## Conclusion
+
+This guide provides you with everything you need to build powerful, intelligent phone agents. From basic concepts to advanced features, each block offers specific capabilities that you can combine to create sophisticated conversation flows.
+
+**Next Steps:**
+1. **Start Simple**: Begin with basic flows using Start Call, Talk, and End Call blocks
+2. **Add Interaction**: Incorporate Collect and Question blocks for user input
+3. **Integrate Systems**: Use API Request and Code blocks to connect with your data
+4. **Optimize**: Apply Filter and Time Filter blocks for intelligent routing
+5. **Test Thoroughly**: Use the testing methods outlined to ensure quality
+
+Remember, the best flows are those that feel natural to callers while efficiently achieving your business goals. Start with simple flows and gradually add complexity as you become more comfortable with the platform.
+
+Happy building!

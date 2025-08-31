@@ -56,6 +56,10 @@
   },
   "tabs": [
     {
+      "name": "Workflow Guide",
+      "url": "workflow-guide"
+    },
+    {
       "name": "API Reference",
       "url": "api-reference"
     },
@@ -68,6 +72,29 @@
     {
       "group": "Get Started",
       "pages": ["introduction"]
+    },
+    {
+      "group": "Workflow Guide",
+      "pages": ["workflow-guide/overview"]
+    },
+    {
+      "group": "Blocks",
+      "pages": [
+        "workflow-guide/blocks/start-call",
+        "workflow-guide/blocks/end-call",
+        "workflow-guide/blocks/talk",
+        "workflow-guide/blocks/transfer",
+        "workflow-guide/blocks/api-request",
+        "workflow-guide/blocks/code",
+        "workflow-guide/blocks/ask-exactly",
+        "workflow-guide/blocks/collect",
+        "workflow-guide/blocks/question",
+        "workflow-guide/blocks/transfer-flows",
+        "workflow-guide/blocks/filter",
+        "workflow-guide/blocks/time-filter",
+        "workflow-guide/blocks/send-sms",
+        "workflow-guide/blocks/send-email"
+      ]
     },
     {
       "group": "API Documentation",

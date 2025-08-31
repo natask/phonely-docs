@@ -1,0 +1,41 @@
+---
+title: 'Transfer'
+description: 'Transfer the call to a human agent or external phone number'
+---
+
+# Transfer Block
+
+**Purpose**: Transfer the call to a human agent or external phone number.
+
+**What It Does:**
+- Seamlessly transfers the call to another destination
+- Plays a transfer message to prepare the caller
+- Handles transfer failures with fallback options
+- Maintains call context for the receiving party
+
+**Key Features:**
+- **Transfer Types**:
+  - **Human Agent**: Transfer to available agent
+  - **Phone Number**: Transfer to specific number
+  - **Queue**: Place in call queue for next available agent
+- **Transfer Message**: Message played before transfer
+- **Fallback Options**: What to do if transfer fails
+- **Transfer Conditions**: When to initiate transfer
+
+**Configuration Options:**
+- **Transfer Destination**: Agent, phone number, or queue
+- **Transfer Message**: What to say before transferring
+- **Fallback Action**: What to do if transfer fails
+- **Transfer Conditions**: Specific triggers for transfer
+
+**Testing Tips:**
+- Test transfer to different destinations
+- Verify fallback behavior when transfer fails
+- Check transfer message timing and clarity
+- Test transfer conditions and triggers
+
+**Common Use Cases:**
+- Escalating complex customer issues
+- Connecting to specialized departments
+- Transferring to sales representatives
+- Routing to emergency services

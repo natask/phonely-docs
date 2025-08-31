@@ -1,0 +1,39 @@
+---
+title: 'Transfer Flows'
+description: 'Switch to different conversation flows while maintaining context and data'
+---
+
+# Transfer Flows Block
+
+**Purpose**: Switch to different conversation flows while maintaining context and data.
+
+**What It Does:**
+- Transitions to a different flow within your account
+- Passes variables and context between flows
+- Returns to the original flow when complete
+- Handles errors if the target flow is unavailable
+
+**Key Features:**
+- **Flow Selection**: Choose target flow based on conditions
+- **Variable Passing**: Transfer data between flows
+- **Return Handling**: Return to original flow when complete
+- **Flow Parameters**: Pass configuration to target flow
+- **Error Handling**: Fallback if target flow unavailable
+
+**Configuration Options:**
+- **Target Flow**: Which flow to transfer to
+- **Variables to Pass**: What data to transfer
+- **Return Conditions**: When to return to original flow
+- **Error Handling**: What to do if transfer fails
+
+**Testing Tips:**
+- Test flow transitions with various conditions
+- Verify variable passing and data integrity
+- Check return behavior and context preservation
+- Validate error handling and fallback scenarios
+
+**Common Use Cases:**
+- Escalating to specialized flows
+- Branching based on caller type
+- Handling different languages or regions
+- Managing complex multi-step processes
