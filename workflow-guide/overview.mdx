@@ -55,19 +55,15 @@ Use the left sidebar to jump to any section, or the right sidebar to navigate wi
 **Edges** are the lines that connect your blocks and define how conversations flow:
 
 **Creating Edges:**
-- Click and drag from a block's output port (right side)
-- Release on another block's input port (left side)
+- Click and drag from a block's output port (bottom side)
+- Release on another block's input port (top side)
 - The connection line shows the conversation path
 
-**Types of Edges:**
-- **Success Edge**: Default path when a block completes successfully
-- **Error Edge**: Path taken when a block encounters an error
-- **Conditional Edges**: Paths based on specific conditions (used with Filter blocks)
-
 **Edge Configuration:**
-- Click on any edge to add conditions or labels
-- Set priority for multiple edges from the same block
-- Add custom labels for better flow readability
+- Click on any edge to open the "Edit Edge" modal
+- Configure **Required Variables**: Define variables that must be present for the edge to be taken
+- Configure **Variables Should Confirm**: Define variables that should be confirmed before taking the edge
+- Save edge settings to apply the configuration
 
 ### Call Variables
 
@@ -85,18 +81,29 @@ Call variables are dynamic data containers that store information throughout a c
    - Use Collect blocks to gather user input
    - Use Code blocks to perform calculations
    - Use API Request blocks to fetch external data
+   - Add Custom Variables to popup Variable modal
 
 2. **Accessing Variables**:
-   - Reference in Talk blocks: `{{variable_name}}`
-   - Use in conditions: `{{variable_name}} == "value"`
+   - Reference variables by:
+     - Assigned names prefixed with @ (e.g., `@phone`, `@name`, `@email`)
+     - Selecting from popup Variable modal
+   - Use in conditions: 
    - Pass to API requests as parameters
 
 3. **Variable Types**:
-   - **String**: Text data
+   - **Text**: General text data
    - **Number**: Numeric values
-   - **Boolean**: True/false values
-   - **Array**: Lists of values
-   - **Object**: Complex data structures
+   - **Date**: Date information
+   - **Time**: Time information
+   - **Name**: Person names
+   - **Email**: Email addresses
+   - **Phone**: Phone numbers
+   - **URL**: Web addresses
+   - **Address**: Physical addresses
+   - **Currency**: Monetary values
+   - **Percentage**: Percentage values
+   - **Duration**: Time durations
+   - **Custom**: User-defined data types
 
 ### Call Outcome Tagging
 
