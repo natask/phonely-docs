@@ -17,6 +17,10 @@
   },
   "topbarLinks": [
     {
+      "name": "Workflow Guide",
+      "url": "workflow-guide"
+    },
+    {
       "name": "Support",
       "url": "mailto:support@phonely.ai"
     },
@@ -44,21 +48,12 @@
       "name": "Community",
       "icon": "users",
       "url": "https://discord.gg/BMHPUaZG37"
-    },
-    {
-      "name": "API Reference",
-      "icon": "code",
-      "url": "api-reference"
     }
   ],
   "primaryTab": {
     "name": "Home"
   },
   "tabs": [
-    {
-      "name": "Workflow Guide",
-      "url": "workflow-guide"
-    },
     {
       "name": "API Reference",
       "url": "api-reference"
@@ -75,7 +70,9 @@
     },
     {
       "group": "Workflow Guide",
-      "pages": ["workflow-guide/overview"]
+      "pages": [
+        "workflow-guide/overview"
+      ]
     },
     {
       "group": "Blocks",
@@ -97,12 +94,9 @@
       ]
     },
     {
-      "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
-    },
-    {
-      "group": "Endpoint Examples",
+      "group": "API Reference",
       "pages": [
+        "api-reference/introduction",
         "api-reference/endpoint/get-agent",
         "api-reference/endpoint/get-agents",
         "api-reference/endpoint/get-usage",
@@ -123,11 +117,10 @@
     },
     {
       "group": "Webhook Reference",
-      "pages": ["webhook-reference/Intro"]
-    },
-    {
-      "group": "Webhook Examples",
-      "pages": ["webhook-reference/endpoint/postcall-webhook"]
+      "pages": [
+        "webhook-reference/Intro",
+        "webhook-reference/endpoint/postcall-webhook"
+      ]
     }
   ],
   "footerSocials": {
