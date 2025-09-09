@@ -17,10 +17,6 @@
   },
   "topbarLinks": [
     {
-      "name": "Workflow Guide",
-      "url": "workflow-guide"
-    },
-    {
       "name": "Support",
       "url": "mailto:support@phonely.ai"
     },
@@ -72,6 +68,15 @@
       "group": "Workflow Guide",
       "pages": [
         "workflow-guide/overview"
+      ]
+    },
+    {
+      "group": "Best Practices",
+      "pages": [
+        "best-practices/overview",
+        "best-practices/flow-design",
+        "best-practices/testing",
+        "best-practices/performance"
       ]
     },
     {
