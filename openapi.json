@@ -1284,6 +1284,228 @@
           }
         ]
       }
+    },
+    "/get-all-agents": {
+      "get": {
+        "summary": "Get all agents",
+        "description": "Retrieves a comprehensive list of all agents across all organizations, organized by organization. This endpoint is typically used for administrative purposes.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllAgentsResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-invoices": {
+      "post": {
+        "summary": "Get invoices",
+        "description": "Retrieves billing invoices for a specific customer from Stripe.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetInvoicesRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInvoicesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Customer ID is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized origin",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Invoices not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-subscription": {
+      "post": {
+        "summary": "Get subscription",
+        "description": "Retrieves subscription details for a specific Stripe subscription.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetSubscriptionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubscriptionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Subscription ID is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized origin",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Subscription not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chat/build": {
+      "post": {
+        "summary": "Chat build",
+        "description": "Provides AI-powered chat functionality for building and developing with Phonely. This endpoint uses advanced AI models with tool integration for enhanced assistance.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatBuildRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatBuildResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error or AI processing error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1910,6 +2132,173 @@
           }
         },
         "required": ["agentId", "agentName", "callCount", "callMinutes"]
+      },
+      "GetAllAgentsResponse": {
+        "type": "object",
+        "properties": {
+          "orgAgents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Organization name"
+                },
+                "orgId": {
+                  "type": "string",
+                  "description": "Organization ID"
+                },
+                "agents": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Agent ID"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Agent name"
+                      },
+                      "businessPhoneNumber": {
+                        "type": "string",
+                        "description": "Business phone number",
+                        "nullable": true
+                      },
+                      "orgId": {
+                        "type": "string",
+                        "description": "Organization ID"
+                      },
+                      "cluster": {
+                        "type": "string",
+                        "description": "Cluster identifier"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "GetInvoicesRequest": {
+        "type": "object",
+        "required": ["customerId"],
+        "properties": {
+          "customerId": {
+            "type": "string",
+            "description": "Stripe customer ID"
+          }
+        }
+      },
+      "GetInvoicesResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Response message"
+          },
+          "invoices": {
+            "type": "object",
+            "description": "Stripe invoices object"
+          }
+        }
+      },
+      "GetSubscriptionRequest": {
+        "type": "object",
+        "required": ["subscriptionId"],
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Stripe subscription ID"
+          }
+        }
+      },
+      "GetSubscriptionResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Response message"
+          },
+          "subscription": {
+            "type": "object",
+            "properties": {
+              "subscriptionId": {
+                "type": "string",
+                "description": "Subscription ID"
+              },
+              "customerId": {
+                "type": "string",
+                "description": "Customer ID"
+              },
+              "status": {
+                "type": "string",
+                "description": "Subscription status"
+              },
+              "currentPeriodStart": {
+                "type": "number",
+                "description": "Current period start timestamp"
+              },
+              "currentPeriodEnd": {
+                "type": "number",
+                "description": "Current period end timestamp"
+              }
+            }
+          }
+        }
+      },
+      "ChatBuildRequest": {
+        "type": "object",
+        "required": ["id", "messages"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique session identifier"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Message ID"
+                },
+                "role": {
+                  "type": "string",
+                  "description": "Message role"
+                },
+                "parts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "Part type"
+                      },
+                      "text": {
+                        "type": "string",
+                        "description": "Text content"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "userId": {
+            "type": "string",
+            "description": "User identifier for tracking"
+          }
+        }
+      },
+      "ChatBuildResponse": {
+        "type": "object",
+        "description": "Server-Sent Events (SSE) stream with AI responses"
       }
     },
     "securitySchemes": {
