@@ -1,0 +1,204 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "Phonely Documentation",
+  "colors": {
+    "primary": "#cc1d92",
+    "light": "#cc1d92",
+    "dark": "#690e80"
+  },
+  "favicon": "/logo/logo-small.png",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Home",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction"
+            ]
+          },
+          {
+            "group": "Workflow Guide",
+            "pages": [
+              "workflow-guide/overview"
+            ]
+          },
+          {
+            "group": "Best Practices",
+            "pages": [
+              "best-practices/overview",
+              "best-practices/flow-design",
+              "best-practices/testing"
+            ]
+          },
+          {
+            "group": "Blocks",
+            "pages": [
+              "workflow-guide/blocks/start-call",
+              "workflow-guide/blocks/end-call",
+              "workflow-guide/blocks/talk",
+              "workflow-guide/blocks/transfer",
+              "workflow-guide/blocks/api-request",
+              "workflow-guide/blocks/code",
+              "workflow-guide/blocks/ask-exactly",
+              "workflow-guide/blocks/collect",
+              "workflow-guide/blocks/question",
+              "workflow-guide/blocks/transfer-flows",
+              "workflow-guide/blocks/filter",
+              "workflow-guide/blocks/time-filter",
+              "workflow-guide/blocks/send-sms",
+              "workflow-guide/blocks/send-email"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Reference",
+            "pages": [
+              "api-reference/introduction",
+              {
+                "group": "Endpoints",
+                "pages": [
+                  {
+                    "group": "Agent Management",
+                    "pages": [
+                      "api-reference/endpoint/get-agent",
+                      "api-reference/endpoint/get-agents",
+                      "api-reference/endpoint/get-all-agents",
+                      "api-reference/endpoint/duplicate-agent",
+                      "api-reference/endpoint/update-agent"
+                    ]
+                  },
+                  {
+                    "group": "Call Management",
+                    "pages": [
+                      "api-reference/endpoint/get-call",
+                      "api-reference/endpoint/report-call-error"
+                    ]
+                  },
+                  {
+                    "group": "Organization & Usage",
+                    "pages": [
+                      "api-reference/endpoint/get-orgs",
+                      "api-reference/endpoint/get-usage"
+                    ]
+                  },
+                  {
+                    "group": "Voice & Phone",
+                    "pages": [
+                      "api-reference/endpoint/list-voices",
+                      "api-reference/endpoint/import-number"
+                    ]
+                  },
+                  {
+                    "group": "Knowledge Base",
+                    "pages": [
+                      "api-reference/endpoint/agent-documents",
+                      "api-reference/endpoint/post-agent-documents",
+                      "api-reference/endpoint/delete-agent-documents",
+                      "api-reference/endpoint/agent-websites",
+                      "api-reference/endpoint/post-agent-websites",
+                      "api-reference/endpoint/delete-agent-websites"
+                    ]
+                  },
+                  {
+                    "group": "Billing & Subscription",
+                    "pages": [
+                      "api-reference/endpoint/get-invoices",
+                      "api-reference/endpoint/get-subscription"
+                    ]
+                  },
+                  {
+                    "group": "Development",
+                    "pages": [
+                      "api-reference/endpoint/chat-build"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Webhook Reference",
+        "groups": [
+          {
+            "group": "Webhook Reference",
+            "pages": [
+              "webhook-reference/Intro",
+              "webhook-reference/endpoint/postcall-webhook"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Dashboard",
+          "href": "https://app.phonely.ai",
+          "icon": "gauge"
+        },
+        {
+          "anchor": "Platform Help Center",
+          "href": "https://help.phonely.ai",
+          "icon": "circle-question"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://discord.gg/BMHPUaZG37",
+          "icon": "users"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/logo.png",
+    "dark": "/logo/logo-white.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@phonely.ai"
+      },
+      {
+        "label": "Community",
+        "href": "https://discord.gg/BMHPUaZG37"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://app.phonely.ai"
+    }
+  },
+  "footer": {
+    "socials": {
+      "linkedin": "https://www.linkedin.com/company/phonely-ai",
+      "discord": "https://discord.gg/BMHPUaZG37"
+    }
+  },
+  "modeToggle": {
+    "default": "light",
+    "isHidden": false
+  },
+  "anchors": {
+    "components": {
+      "Button": {
+        "variants": {
+          "primary": {
+            "background": "var(--color-primary)",
+            "color": "white"
+          }
+        }
+      }
+    }
+  }
+}
