@@ -49,7 +49,9 @@
               "workflow-guide/blocks/filter",
               "workflow-guide/blocks/time-filter",
               "workflow-guide/blocks/send-sms",
-              "workflow-guide/blocks/send-email"
+              "workflow-guide/blocks/send-email",
+              "workflow-guide/blocks/google-sheet-live",
+              "workflow-guide/blocks/zapier-live"
             ]
           }
         ]
