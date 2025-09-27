@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
+  "theme": "palm",
   "name": "Phonely Documentation",
   "colors": {
     "primary": "#cc1d92",
@@ -22,36 +22,37 @@
           {
             "group": "Workflow Guide",
             "pages": [
-              "workflow-guide/overview"
+              "home/workflow-guide/overview"
             ]
           },
           {
             "group": "Best Practices",
             "pages": [
-              "best-practices/overview",
-              "best-practices/flow-design",
-              "best-practices/testing"
+              "home/best-practices/overview",
+              "home/best-practices/flow-design",
+              "home/best-practices/testing"
             ]
           },
           {
             "group": "Blocks",
             "pages": [
-              "workflow-guide/blocks/start-call",
-              "workflow-guide/blocks/end-call",
-              "workflow-guide/blocks/talk",
-              "workflow-guide/blocks/transfer",
-              "workflow-guide/blocks/api-request",
-              "workflow-guide/blocks/code",
-              "workflow-guide/blocks/ask-exactly",
-              "workflow-guide/blocks/collect",
-              "workflow-guide/blocks/question",
-              "workflow-guide/blocks/transfer-flows",
-              "workflow-guide/blocks/filter",
-              "workflow-guide/blocks/time-filter",
-              "workflow-guide/blocks/send-sms",
-              "workflow-guide/blocks/send-email",
-              "workflow-guide/blocks/google-sheet-live",
-              "workflow-guide/blocks/zapier-live"
+              "home/blocks/start-flow",
+              "home/blocks/end-call",
+              "home/blocks/transfer-call",
+              "home/blocks/talk",
+              "home/blocks/api-request",
+              "home/blocks/code",
+              "home/blocks/ask-exactly",
+              "home/blocks/collect",
+              "home/blocks/question",
+              "home/blocks/transfer-flows",
+              "home/blocks/warm-transfer",
+              "home/blocks/filter",
+              "home/blocks/time-filter",
+              "home/blocks/send-sms",
+              "home/blocks/send-email",
+              "home/blocks/google-sheet-live",
+              "home/blocks/zapier-live"
             ]
           }
         ]
@@ -202,5 +203,8 @@
         }
       }
     }
-  }
+  },
+  "scripts": [
+    "/js/custom-toc.js"
+  ]
 }

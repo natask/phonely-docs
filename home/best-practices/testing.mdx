@@ -1,5 +1,5 @@
 ---
-title: 'Testing Best Practices'
+title: 'Testing'
 description: 'Comprehensive testing strategies for reliable AI phone agents'
 ---
 
@@ -9,7 +9,7 @@ Thorough testing is crucial for ensuring your AI phone agents work reliably in p
 
 ## Testing Philosophy
 
-### Test Early, Test Often
+**• Test Early, Test Often**
 
 <Info>
   **Golden Rule:** Every change should be tested before deployment, no matter how small.
@@ -19,7 +19,7 @@ Testing should be integrated into your development workflow, not treated as an a
 
 ## Types of Testing
 
-### 1. Unit Testing
+**1. Unit Testing**
 
 Test individual blocks and components in isolation:
 
@@ -41,7 +41,7 @@ Test individual blocks and components in isolation:
   </Card>
 </CardGroup>
 
-### 2. Integration Testing
+**2. Integration Testing**
 
 Test how different parts of your flow work together:
 
@@ -57,7 +57,7 @@ Test how different parts of your flow work together:
   </Step>
 </Steps>
 
-### 3. End-to-End Testing
+**3. End-to-End Testing**
 
 Test complete user journeys from start to finish:
 
@@ -87,9 +87,9 @@ Test complete user journeys from start to finish:
   </Accordion>
 </AccordionGroup>
 
-## Testing Tools and Methods
+## Testing Tools
 
-### Phonely's Built-in Testing
+**• Built-in Tools**
 
 <CardGroup columns="2">
   <Card title="Flow Simulator" icon="play">
@@ -109,7 +109,7 @@ Test complete user journeys from start to finish:
   </Card>
 </CardGroup>
 
-### Manual Testing Checklist
+**• Manual Testing**
 
 <Checklist>
   <ChecklistItem>Test with different phone types (landline, mobile, VoIP)</ChecklistItem>
@@ -120,9 +120,9 @@ Test complete user journeys from start to finish:
   <ChecklistItem>Test error scenarios and recovery paths</ChecklistItem>
 </Checklist>
 
-## Test Data Management
+## Test Data
 
-### Creating Realistic Test Data
+**• Creating Test Data**
 
 <Warning>
   **Security Note:** Never use real customer data for testing. Always use anonymized or synthetic data.
@@ -134,7 +134,7 @@ Test complete user journeys from start to finish:
 - Test with different data formats and languages
 - Ensure test data reflects your actual user base demographics
 
-### Test Environment Setup
+**• Environment Setup**
 
 <Steps>
   <Step title="Separate Test Environment">
@@ -150,9 +150,7 @@ Test complete user journeys from start to finish:
 
 ## Performance Testing
 
-### Load Testing
-
-Test how your agents perform under various load conditions:
+**• Load Testing** - Test how your agents perform under various load conditions
 
 <CardGroup columns="2">
   <Card title="Concurrent Calls" icon="users">
@@ -172,18 +170,16 @@ Test how your agents perform under various load conditions:
   </Card>
 </CardGroup>
 
-### Response Time Testing
-
-Monitor and optimize key performance metrics:
+**• Response Time Testing** - Monitor and optimize key performance metrics
 
 - **Initial Response Time:** How quickly does the agent start speaking?
 - **Processing Time:** How long does it take to process user input?
 - **API Response Time:** How quickly do external integrations respond?
 - **Total Call Duration:** Is the conversation efficient?
 
-## User Acceptance Testing
+## User Testing
 
-### Beta Testing Program
+**• Beta Testing**
 
 <Info>
   **Recommendation:** Run a beta test with a small group of real users before full deployment.
@@ -196,7 +192,7 @@ Monitor and optimize key performance metrics:
 4. **Collect Feedback:** Gather both quantitative metrics and qualitative feedback
 5. **Iterate:** Make improvements based on findings before full launch
 
-### Feedback Collection
+**• Feedback**
 
 <AccordionGroup>
   <Accordion title="Quantitative Metrics" icon="chart-line">
@@ -216,9 +212,7 @@ Monitor and optimize key performance metrics:
 
 ## Continuous Testing
 
-### Automated Testing Pipeline
-
-Set up automated tests that run on every change:
+**• Automated Testing** - Set up automated tests that run on every change
 
 <Steps>
   <Step title="Pre-deployment Tests">
@@ -232,7 +226,7 @@ Set up automated tests that run on every change:
   </Step>
 </Steps>
 
-### Regression Testing
+**• Regression**
 
 <Warning>
   **Important:** Always test that new changes don't break existing functionality.
@@ -244,11 +238,9 @@ Set up automated tests that run on every change:
 - Use automated testing where possible to catch issues quickly
 - Document and track all known issues and their fixes
 
-## Testing Documentation
+## Documentation
 
-### Test Plans and Results
-
-Keep detailed records of your testing activities:
+**• Test Plans** - Keep detailed records of your testing activities
 
 <Checklist>
   <ChecklistItem>Test plan documentation with clear objectives</ChecklistItem>

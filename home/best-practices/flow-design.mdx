@@ -1,5 +1,5 @@
 ---
-title: 'Flow Design Best Practices'
+title: 'Flow Design'
 description: 'How to structure conversations for optimal user experience'
 ---
 
@@ -9,7 +9,7 @@ Good flow design is the foundation of successful AI phone agents. This guide cov
 
 ## Core Design Principles
 
-### 1. Keep It Simple
+**1. Keep It Simple**
 
 <Info>
   **Rule of Thumb:** If you can't explain your flow in 30 seconds, it's probably too complex.
@@ -21,7 +21,7 @@ Good flow design is the foundation of successful AI phone agents. This guide cov
 - Avoid technical jargon
 - Provide obvious next steps
 
-### 2. Start with the End in Mind
+**2. Start with the End in Mind**
 
 Before building your flow, clearly define:
 - What is the primary goal of this conversation?
@@ -29,7 +29,7 @@ Before building your flow, clearly define:
 - What action should the caller take?
 - How will you know the call was successful?
 
-### 3. Design for Real Conversations
+**3. Design for Real Conversations**
 
 Real phone conversations are dynamic and unpredictable. Design your flows to handle:
 
@@ -53,9 +53,7 @@ Real phone conversations are dynamic and unpredictable. Design your flows to han
 
 ## Flow Structure Guidelines
 
-### Opening Strong
-
-Your first 10 seconds determine the entire call experience:
+**• Opening Strong** - Your first 10 seconds determine the entire call experience
 
 **Good Opening:**
 > "Hi! I'm your AI assistant from [Company]. I'm here to help you [specific purpose]. How can I assist you today?"
@@ -63,9 +61,7 @@ Your first 10 seconds determine the entire call experience:
 **Avoid:**
 > "Welcome to our automated system. Please listen carefully as our menu options have changed..."
 
-### Logical Flow Progression
-
-Structure your conversation in a logical sequence:
+**• Logical Flow Progression** - Structure your conversation in a logical sequence
 
 1. **Greeting & Purpose** - Set expectations
 2. **Information Gathering** - Collect what you need
@@ -74,7 +70,7 @@ Structure your conversation in a logical sequence:
 5. **Next Steps** - Clear action items
 6. **Closing** - Professional ending
 
-### Effective Information Collection
+**• Effective Information Collection**
 
 <Steps>
   <Step title="Ask One Thing at a Time">
@@ -88,11 +84,9 @@ Structure your conversation in a logical sequence:
   </Step>
 </Steps>
 
-## Error Handling & Fallbacks
+## Error Handling
 
-### Graceful Degradation
-
-Always provide fallback options when things don't go as planned:
+**• Graceful Degradation** - Always provide fallback options when things don't go as planned
 
 <AccordionGroup>
   <Accordion title="When Information Isn't Clear" icon="exclamation-triangle">
@@ -114,9 +108,9 @@ Always provide fallback options when things don't go as planned:
   </Accordion>
 </AccordionGroup>
 
-## Language and Tone Guidelines
+## Language Guidelines
 
-### Use Natural, Conversational Language
+**• Use Natural, Conversational Language**
 
 **Good:**
 - "I'd be happy to help you with that."
@@ -128,7 +122,7 @@ Always provide fallback options when things don't go as planned:
 - "Invalid input detected."
 - "System error 404."
 
-### Match Your Brand Voice
+**• Match Your Brand Voice**
 
 Consider your company's personality:
 - **Professional Services:** Formal, respectful, thorough
@@ -136,11 +130,9 @@ Consider your company's personality:
 - **Healthcare:** Caring, patient, clear
 - **Retail:** Energetic, helpful, sales-focused
 
-## Testing Your Flow Design
+## Testing
 
-### User Testing Checklist
-
-Before deploying your flow, test it with:
+**• Testing Checklist** - Before deploying your flow, test it with:
 
 <Checklist>
   <ChecklistItem>Real users (not just your team)</ChecklistItem>
@@ -149,7 +141,7 @@ Before deploying your flow, test it with:
   <ChecklistItem>Different phone types and connection qualities</ChecklistItem>
 </Checklist>
 
-### Common Flow Issues to Test
+**• Common Issues**
 
 - **Dead Ends:** Can callers get stuck without options?
 - **Confusing Language:** Are instructions clear to non-technical users?
