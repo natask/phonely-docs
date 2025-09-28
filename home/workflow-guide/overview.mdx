@@ -1,242 +1,422 @@
 ---
-title: 'Overview'
-description: 'Complete guide to building AI-powered phone agents with Flows'
+title: "Flows – Visual Conversation Builder"
+description: "Build, test, and ship AI phone agents using Phonely Flows. A readable, component-driven guide for designers, builders, and engineers."
 ---
 
-## Introduction
+# Introduction
 
-### What are Flows?
+Flows are the visual blueprints for your AI phone agents — defining what the agent says, collects, calls, and decides from “hello” to hang-up.
 
-Flows are visual conversation builders that allow you to create AI-powered phone agents. Think of a Flow as a blueprint for how your AI agent will interact with callers - from the moment they dial in until the call ends.
+<Info>
+  This page evolves as the product evolves. Start here, then jump to sections from the left nav as you need depth.
+</Info>
 
-**Key Components:**
-- **Blocks**: Individual components that perform specific actions (talk, collect information, make API calls, etc.)
-- **Edges**: Connections between blocks that define the conversation path
-- **Variables**: Dynamic data that flows through your conversation
+## What are Flows?
 
-**Why Use Flows?**
-- **No Coding Required**: Visual drag-and-drop interface
-- **Real-time Conversations**: Handle dynamic, natural conversations
-- **Scalable**: Handle thousands of calls simultaneously
-- **Integrations**: Connect with your existing systems and APIs
+<Cards>
+  <Card title="Blocks" icon="sparkles">
+    Individual units of behavior — speak to callers, collect info, call APIs, transfer, end calls, and more.
+  </Card>
 
-### How to Navigate This Guide
+  <Card title="Edges" icon="arrow-right">
+    Connections that determine which path the conversation takes next.
+  </Card>
 
-This guide is organized to help you understand Flows from basic concepts to advanced features:
+  <Card title="Variables" icon="tag">
+    The agent’s short-term memory — values that change per call (caller inputs, system data, API results).
+  </Card>
+</Cards>
 
-1. **Start with Core Concepts** - Learn the fundamental building blocks
-2. **Explore Individual Blocks** - Understand each component in detail
-3. **Apply Testing & Best Practices** - Ensure your flows work correctly
+## Why use Flows?
 
-Use the left sidebar to jump to any section, or the right sidebar to navigate within the current section.
+<Cards>
+  <Card title="No code to start">
+    Drag, drop, and configure. Ship fast without waiting on engineering.
+  </Card>
 
----
+  <Card title="Real-time & natural">
+    Handle interruptions, clarifications, and pivots mid-conversation.
+  </Card>
 
-## Core Concepts
+  <Card title="Built to scale">
+    Confidently handle thousands of concurrent calls.
+  </Card>
 
-### How to Change Flows
-
-**Editing Your Flow:**
-1. **Enter Edit Mode**: Click the "Edit" button in your flow builder
-2. **Add Blocks**: Drag blocks from the left sidebar to your canvas
-3. **Configure Blocks**: Click any block to open its settings panel
-4. **Connect Blocks**: Draw edges between blocks to define conversation flow
-5. **Save Changes**: Click "Save" to preserve your work
-
-**Version Control:**
-- Each save creates a new version of your flow
-- You can revert to previous versions if needed
-- Test changes before publishing to production
-
-### Connecting Blocks Using Edges
-
-**Edges** are the lines that connect your blocks and define how conversations flow:
-
-**Creating Edges:**
-- Click and drag from a block's output port (bottom side)
-- Release on another block's input port (top side)
-- The connection line shows the conversation path
-
-**Edge Configuration:**
-- Click on any edge to open the "Edit Edge" modal
-- Configure **Required Variables**: Define variables that must be present for the edge to be taken
-- Configure **Variables Should Confirm**: Define variables that should be confirmed before taking the edge
-- Save edge settings to apply the configuration
-
-### Call Variables
-
-**What Are Call Variables?**
-Call variables are dynamic data containers that store information throughout a call session. They're like memory for your AI agent.
-
-**Types of Variables:**
-- **User Input**: Information collected from the caller
-- **System Data**: Call metadata, timestamps, phone numbers
-- **API Responses**: Data retrieved from external services
-
-**How to Use Variables:**
-1. **Setting Variables**:
-   - Use Collect blocks to gather user input
-   - Use API Request blocks to fetch external data
-   - Add Custom Variables to popup Variable modal
-
-2. **Accessing Variables**:
-   - Reference variables by:
-     - Assigned names prefixed with @ (e.g., `@phone`, `@name`, `@email`)
-     - Selecting from popup Variable modal
-   - Use in conditions: 
-   - Pass to API requests as parameters
-
-3. **Variable Types**:
-   - **Text**: General text data
-   - **Number**: Numeric values
-   - **Date**: Date information
-   - **Time**: Time information
-   - **Name**: Person names
-   - **Email**: Email addresses
-   - **Phone**: Phone numbers
-   - **URL**: Web addresses
-   - **Address**: Physical addresses
-   - **Currency**: Monetary values
-   - **Percentage**: Percentage values
-   - **Duration**: Time durations
-   - **Custom**: User-defined data types
-
-### Call Outcome Tagging
-
-**Purpose:**
-Call outcome tagging allows you to categorize and analyze call results for better insights and automation.
-
-**How It Works:**
-1. **Automatic Tagging**: System tags calls as "Completed", "Failed", "Transferred", etc.
-2. **Custom Tags**: Use End Call blocks to set custom outcome tags
-3. **Conditional Tagging**: Tag outcomes based on specific conditions or variables
-
-**Common Outcome Tags:**
-- `appointment_scheduled`
-- `lead_qualified`
-- `customer_satisfied`
-- `escalation_needed`
-- `no_show_followup`
-
-**Benefits:**
-- **Analytics**: Track success rates and common outcomes
-- **Reporting**: Generate insights on call performance
-- **Automation**: Trigger different post-call actions based on outcomes
+  <Card title="Integrations">
+    Call your APIs and systems directly from the Flow.
+  </Card>
+</Cards>
 
 ---
 
-## Testing & Best Practices
+# Core concepts
 
-### Testing Your Flows
+## How to change a Flow
 
-**Simulation Testing:**
-1. **Call Recording Upload**: Upload existing call recordings to test flow logic
-2. **Variable Simulation**: Set test values for call variables
-3. **Path Testing**: Verify all conversation paths work correctly
-4. **Error Testing**: Test error handling and fallback scenarios
+<Steps>
+  <Step title="Enter edit mode">
+    Open your Flow and click <b>
+    Edit</b>
 
-**Live Testing:**
-1. **Test Phone Numbers**: Use dedicated test numbers for development
-2. **Real-time Monitoring**: Watch calls in real-time dashboard
-3. **Performance Metrics**: Monitor response times and success rates
-4. **A/B Testing**: Compare different flow versions
+    .
+  </Step>
+  
+  <Step title="Add blocks">
+    Drag desired blocks from the left sidebar onto the canvas.
+  </Step>
+  
+  <Step title="Configure blocks">
+    Click a block to set prompts, fields, API details, and validation.
+  </Step>
+  
+  <Step title="Connect blocks">
+    Drag from a block’s output port (bottom) to the next block’s input (top).
+  </Step>
+  
+  <Step title="Save">
+    Click <b>
+    Save</b>
 
-### Best Practices for Flow Design
+    . Each save creates a new version.
+  </Step>
+</Steps>
 
-**Conversation Design:**
-- **Keep it Natural**: Design conversations that feel human and engaging
-- **Provide Clear Options**: Give callers clear choices and next steps
-- **Handle Interruptions**: Plan for callers who interrupt or change topics
-- **Use Confirmation**: Verify important information before proceeding
+<info>
+  <b>
+  Versioning:</b>
 
-**Technical Best Practices:**
-- **Test Thoroughly**: Test all paths and edge cases
-- **Monitor Performance**: Track call success rates and user satisfaction
-- **Plan for Errors**: Always have fallback options for failures
-- **Document Your Flows**: Keep clear documentation of flow logic
+   Every save is a version. You can revert. Always test before pushing to production.
+</info>
 
-**Variable Management:**
-- **Use Descriptive Names**: Name variables clearly and consistently
-- **Validate Input**: Always validate user input before using it
-- **Handle Missing Data**: Plan for scenarios where variables might be empty
-- **Clean Up Variables**: Remove sensitive data when no longer needed
+## Connecting blocks with edges
 
-### Common Patterns and Workflows
+<Steps>
+  <Step title="Create an edge">
+    Click and drag from the output
 
-**Customer Service Pattern:**
-1. Start Call → Welcome and identify caller
-2. Collect → Understand the issue
-3. Filter → Route based on issue type
-4. API Request → Check account/order status
-5. Talk → Provide information or solution
-6. Question → Ask if issue is resolved
-7. Filter → Route to human if needed
-8. End Call → Thank and summarize
+     of one block to the input
 
-**Appointment Booking Pattern:**
-1. Start Call → Welcome and identify caller
-2. Collect → Get appointment preferences
-3. API Request → Check availability
-4. Question → Confirm appointment details
-5. API Request → Book appointment
-6. Send SMS → Send confirmation
-7. End Call → Thank and confirm
+     of the next.
+  </Step>
+  
+  <Step title="Configure the edge">
+    Select the edge to open the editor and set guards/requirements.
+  </Step>
+  
+  <Step title="Confirm & save">
+    Define what must be present or confirmed before the edge is taken, then save.
+  </Step>
+</Steps>
 
-**Lead Qualification Pattern:**
-1. Start Call → Welcome and introduce purpose
-2. Collect → Gather lead information
-3. Question → Assess interest level
-4. Filter → Route based on qualification
-5. Transfer → Connect to sales if qualified
-6. End Call → Thank and follow up
+<Properties>
+  <Property name="required_variables" type="array">
+    Variables that must exist (and be non-empty) for the edge to be eligible.
+  </Property>
 
-### Troubleshooting Guide
-
-**Common Issues and Solutions:**
-
-**Flow Not Responding:**
-- Check block connections and edges
-- Verify all required variables are set
-- Test individual blocks for errors
-- Check API endpoints and authentication
-
-**Poor Call Quality:**
-- Review Talk block configurations
-- Test with different voice options
-- Check speech rate and clarity
-- Verify variable interpolation
-
-**Transfer Failures:**
-- Confirm transfer destinations are correct
-- Test fallback options
-- Check transfer message timing
-- Verify agent availability
-
-**Variable Issues:**
-- Check variable naming and spelling
-- Verify variables are set before use
-- Test variable interpolation in Talk blocks
-- Validate data types and formats
-
-**API Integration Problems:**
-- Test API endpoints independently
-- Verify authentication credentials
-- Check request/response formats
-- Monitor API rate limits and timeouts
+  <Property name="confirm_variables" type="array">
+    Variables the caller should confirm before taking the edge (e.g., <code>@name</code>, <code>@address</code>).
+  </Property>
+</Properties>
 
 ---
 
-## Conclusion
+# Call variables
 
-This guide provides you with everything you need to build powerful, intelligent phone agents. From basic concepts to advanced features, each block offers specific capabilities that you can combine to create sophisticated conversation flows.
+<Accordion>
+  <AccordionItem title="What are call variables?">
+  Variables are dynamic containers that persist for the duration of the call — like the agent’s working memory.
+</AccordionItem>
 
-**Next Steps:**
-1. **Start Simple**: Begin with basic flows using Start Call, Talk, and End Call blocks
-2. **Add Interaction**: Incorporate Collect and Question blocks for user input
-3. **Integrate Systems**: Use API Request to connect with your data
-4. **Optimize**: Apply Filter and Time Filter blocks for intelligent routing
-5. **Test Thoroughly**: Use the testing methods outlined to ensure quality
+  <AccordionItem title="How to set variables">
+  Use <b>Collect</b> blocks for caller input, <b>API Request</b> blocks for external data, or add custom variables via the Variable modal.
+</AccordionItem>
 
-Remember, the best flows are those that feel natural to callers while efficiently achieving your business goals. Start with simple flows and gradually add complexity as you become more comfortable with the platform.
+  <AccordionItem title="How to access variables">
+  Reference by name with <code>@variable\_name</code> or select from the Variable modal. Use them in prompts, conditions, and API payloads.
+</AccordionItem>
+</Accordion>
 
-Start building your flows today.
+### Variable types
+
+<Properties>
+  <Property name="text" type="string">General text.</Property>
+  <Property name="number" type="number">Numeric values.</Property>
+  <Property name="date" type="ISO date">Dates.</Property>
+  <Property name="time" type="HH:mm">Times.</Property>
+  <Property name="name" type="string">Caller names.</Property>
+  <Property name="email" type="string">Email addresses.</Property>
+  <Property name="phone" type="string">Phone numbers.</Property>
+  <Property name="url" type="string">Web addresses.</Property>
+  <Property name="address" type="object">Street, city, region, postal, country.</Property>
+  <Property name="currency" type="number">Monetary values.</Property>
+  <Property name="percentage" type="number">Percent values.</Property>
+  <Property name="duration" type="string">Time spans.</Property>
+  <Property name="custom" type="any">User-defined schema.</Property>
+</Properties>
+
+---
+
+# Call outcome tagging
+
+<info>
+  Outcome tags enable analytics, reporting, and automations after the call ends.
+</info>
+
+<Cards>
+  <Card title="Automatic">
+    System applies defaults like <code>completed</code>, <code>failed</code>, or <code>transferred</code>.
+  </Card>
+
+  <Card title="Custom">
+    Set custom tags in <b>End Call</b> blocks for downstream workflows.
+  </Card>
+
+  <Card title="Conditional">
+    Apply tags only when conditions on variables are met.
+  </Card>
+</Cards>
+
+<Properties>
+  <Property name="appointment_scheduled" type="tag" />
+
+  <Property name="lead_qualified" type="tag" />
+
+  <Property name="customer_satisfied" type="tag" />
+
+  <Property name="escalation_needed" type="tag" />
+
+  <Property name="no_show_followup" type="tag" />
+</Properties>
+
+---
+
+# Testing & best practices
+
+## Test your Flows
+
+<Tabs>
+  <Tab title="Simulation">
+    <Steps>
+      <Step title="Upload a recording">
+        Validate recognition and branch logic with real audio.
+      </Step>
+      
+      <Step title="Simulate variables">
+        Seed test values for <code>
+        @name</code>
+
+        , <code>
+        @phone</code>
+
+        , etc.
+      </Step>
+      
+      <Step title="Path testing">
+        Walk each branch and confirm expected prompts.
+      </Step>
+      
+      <Step title="Error testing">
+        Force empty/malformed inputs to validate fallbacks.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Live">
+    <Steps>
+      <Step title="Use test numbers">
+        Route calls to non-production DIDs.
+      </Step>
+      
+      <Step title="Monitor in real time">
+        Watch transcripts and events in the dashboard.
+      </Step>
+      
+      <Step title="Measure performance">
+        Track response times, success rates, transfers.
+      </Step>
+      
+      <Step title="A/B versions">
+        Compare alternative prompts/flows.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Design guidelines
+
+<Accordion>
+  <AccordionItem title="Conversation design">
+  Keep prompts natural and concise, offer clear next steps, plan for interruptions, and confirm critical data before proceeding.
+</AccordionItem>
+
+  <AccordionItem title="Technical hygiene">
+  Test all branches, add fallback edges, watch performance metrics, and keep external dependencies resilient.
+</AccordionItem>
+
+  <AccordionItem title="Variable management">
+  Use descriptive names, validate inputs, handle missing data gracefully, and scrub sensitive data when not needed.
+</AccordionItem>
+</Accordion>
+
+---
+
+# Common patterns & workflows
+
+<Tabs>
+  <Tab title="Customer Service">
+    <Steps>
+      <Step title="Start & welcome">
+        
+      </Step>
+      <Step title="Collect issue details">
+        
+      </Step>
+      <Step title="Filter by issue type">
+        
+      </Step>
+      <Step title="API request for account/order">
+        
+      </Step>
+      <Step title="Provide resolution">
+        
+      </Step>
+      <Step title="Confirm satisfaction">
+        
+      </Step>
+      <Step title="Route to human if needed">
+        
+      </Step>
+      <Step title="End with summary">
+        
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Appointment Booking">
+    <Steps>
+      <Step title="Start & identify caller">
+        
+      </Step>
+      <Step title="Collect preferences (date/time/location)">
+        
+      </Step>
+      <Step title="API: check availability">
+        
+      </Step>
+      <Step title="Confirm details with caller">
+        
+      </Step>
+      <Step title="API: book appointment">
+        
+      </Step>
+      <Step title="Send SMS confirmation">
+        
+      </Step>
+      <Step title="End call">
+        
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Lead Qualification">
+    <Steps>
+      <Step title="Start & introduce purpose">
+        
+      </Step>
+      <Step title="Collect lead information">
+        
+      </Step>
+      <Step title="Assess interest/fit">
+        
+      </Step>
+      <Step title="Filter: qualified vs. nurture">
+        
+      </Step>
+      <Step title="Transfer to sales when qualified">
+        
+      </Step>
+      <Step title="End & follow-up">
+        
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+---
+
+# Troubleshooting guide
+
+<Accordion>
+  <AccordionItem title="Flow not responding">
+  Verify block connections, confirm required variables are set, test blocks individually, and check API auth/endpoints.
+</AccordionItem>
+
+  <AccordionItem title="Poor call quality">
+  Review Talk block voice settings, try alternate voices, adjust rate and pauses, and check variable interpolation.
+</AccordionItem>
+
+  <AccordionItem title="Transfer failures">
+  Confirm destination numbers/agents, test fallbacks, and verify timing and availability windows.
+</AccordionItem>
+
+  <AccordionItem title="Variable issues">
+  Check spelling/case, ensure values are set before use, validate data types, and test prompts using variables.
+</AccordionItem>
+
+  <AccordionItem title="API integration problems">
+  Test endpoints in isolation, verify credentials and headers, confirm request/response schemas, and watch rate limits/timeouts.
+</AccordionItem>
+</Accordion>
+
+---
+
+# Conclusion
+
+You now have the essentials to design reliable, natural AI phone experiences:
+
+- Start simple, iterate quickly.
+- Integrate systems as needed.
+- Test rigorously and monitor outcomes.
+
+<Steps>
+  <Step title="Start simple">
+    Build with <b>
+    Start Call</b>
+
+    , <b>
+    Talk</b>
+
+    , and <b>
+    End Call</b>
+
+    .
+  </Step>
+  
+  <Step title="Add interaction">
+    Use <b>
+    Collect</b>
+
+     and <b>
+    Question</b>
+
+     blocks.
+  </Step>
+  
+  <Step title="Integrate systems">
+    Add <b>
+    API Request</b>
+
+     and conditional edges.
+  </Step>
+  
+  <Step title="Optimize">
+    Use <b>
+    Filter</b>
+
+     and <b>
+    Time Filter</b>
+
+     to route intelligently.
+  </Step>
+  
+  <Step title="Test thoroughly">
+    Apply simulation and live testing practices above.
+  </Step>
+</Steps>
