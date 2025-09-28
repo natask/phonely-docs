@@ -16,10 +16,8 @@
           {
             "group": "Get Started",
             "pages": [
-              "home/get_started/Introduction",
-              "home/get_started/flows",
-              "home/get_started/routing"
-              
+              "home/get-started/introduction",
+              "home/get-started/quick_start"
             ]
           },
           {
@@ -39,25 +37,40 @@
             ]
           },
           {
-            "group": "Blocks",
+            "group": "Call Flows",
             "pages": [
-              "home/blocks/start-flow",
-              "home/blocks/end-call",
-              "home/blocks/transfer-call",
-              "home/blocks/talk",
-              "home/blocks/api-request",
-              "home/blocks/code",
-              "home/blocks/ask-exactly",
-              "home/blocks/collect",
-              "home/blocks/question",
-              "home/blocks/transfer-flows",
-              "home/blocks/warm-transfer",
-              "home/blocks/filter",
-              "home/blocks/time-filter",
-              "home/blocks/send-sms",
-              "home/blocks/send-email",
-              "home/blocks/google-sheet-live",
-              "home/blocks/zapier-live"
+              {
+                "group": "Flow Blocks",
+                "pages": [
+                  "home/blocks/start-flow",
+                  "home/blocks/talk",
+                  "home/blocks/ask-exactly",
+                  "home/blocks/collect",
+                  "home/blocks/filter",
+                  "home/blocks/time-filter",
+                  "home/blocks/end-call"
+                ]
+              },
+              {
+                "group": "Live Call Actions",
+                "pages": [
+                  "home/blocks/api-request",
+                  "home/blocks/google-sheet-live",
+                  "home/blocks/transfer-flows",
+                  "home/blocks/warm-transfer",
+                  "home/blocks/send-sms",
+                  "home/blocks/send-email",
+                  "home/blocks/zapier-live",
+                  "home/blocks/code"
+                ]
+              },
+              {
+                "group": "Post Call Actions",
+                "pages": [
+                  "home/blocks/post-call-overview",
+                  "home/blocks/post-call-send-email"
+                ]
+              }
             ]
           }
         ]

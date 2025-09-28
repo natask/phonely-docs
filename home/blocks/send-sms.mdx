@@ -1,37 +1,93 @@
 ---
 title: 'Send SMS'
-description: 'Send text messages during or after calls for follow-up and notifications'
+description: 'Send text messages to enhance customer interaction and streamline communication'
 ---
 
-**What It Does:**
-- Composes and sends SMS messages
-- Interpolates call variables into message content
-- Tracks delivery status and confirmation
-- Supports scheduling for future delivery
 
-**Key Features:**
-- **Message Content**: Dynamic text using collected variables
-- **Recipient Selection**: Send to caller or other numbers
-- **Scheduling**: Send immediately or schedule for later
-- **Template Support**: Use predefined message templates
-- **Delivery Confirmation**: Track message delivery status
+The Send Text Message Block very simply allows Phonely to send a text message from its designated number (or your verified custom number) directly to your customer's phone number. This functionality is a powerful way to enhance customer interaction, streamline communication, and extend the automated conversation beyond the voice call.
 
-**Configuration Options:**
-- **Message Text**: Content of the SMS
-- **Recipient**: Phone number to send to
-- **Scheduling**: When to send the message
-- **Template**: Predefined message template
-- **Delivery Tracking**: Whether to track delivery status
+<iframe src="https://www.youtube.com/embed/U4WWVGZOBTk" title="Send Text Message" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-**Testing Tips:**
-- Test message sending with various content
-- Verify variable interpolation in messages
-- Check delivery confirmation and status
-- Validate scheduling and timing
+## Key Features of the Send Text Message Block
 
-**Common Use Cases:**
-- Appointment confirmations
-- Order status updates
-- Follow-up reminders
-- Emergency notifications
-- Marketing messages
+1. **Automated SMS Delivery**: Sends text messages from Phonely's system to a customer's phone number automatically based on workflow logic.
+
+2. **Variable Integration**: Compose dynamic message content by including answers from previous questions or other stored variables (e.g., caller name, phone number, address, live transcript data).
+
+3. **Flexible Recipient Selection**: Choose to send the SMS to the customer's phone number from which they initiated the call, or to a specific phone number collected as a variable within the workflow.
+
+4. **Custom Number Support**: Optionally use your own dedicated SMS number for texting (requires A2P 10DLC compliance and additional verification).
+
+5. **Interim Message**: Define a message that the AI agent says aloud while the text message is being sent (e.g., "One moment please," or "Sending you that text right now").
+
+6. **Call Outcome Tagging**: Allows you to tag the call at this stage for further analytics, helping you understand workflow progression.
+
+## How to Use the Send Text Message Block
+
+**1. Access the Workflows Page**
+
+1. Log in to the Phonely Dashboard. If you're logging in for the first time, you'll see a navigation bar on the left side.
+2. Navigate to the "Agent" page and then select "Workflows".
+
+**2. Create or Edit a Workflow**
+
+1. Click on "Create New Flow" or edit an existing flow.
+2. Set a Trigger Condition for your workflow (e.g., "when someone asks about call flows"). This allows you to create different questions and branching answers based on the trigger.
+
+**3. Add a Phone Number Request (Crucial for Reliability)**
+
+1. To reliably send an SMS, start by either confirm the customer's phone number as the number that triggered the call, or asking for the customer's phone number in a preceding block.
+2. Use an Ask Exactly Block for this purpose.
+3. Select "Advanced Options" within that block's settings and choose "Phone" for the answer type to ensure the input is formatted correctly.
+
+**4. Add the Send Text Message Block**
+
+1. Link the action by clicking the plus + button in your workflow where you want the SMS to be sent.
+2. Select "Send SMS Message" from the available blocks.
+
+**5. Configure the SMS**
+
+1. Click on the Send Text Message Block to open its settings.
+
+**Choose the Phone Number**
+
+You have two primary options for the recipient:
+
+- **Use the customer's phone number from which the call was sent to or received from**
+- **Use a phone number provided in a previous question** (Recommended for reliability)
+- **Advanced**: You can also access Twilio metadata variables (like caller_phone_number) for advanced use cases, but explicitly asking the customer is often simpler and more reliable.
+
+2. **Compose the Message Content**: Enter the message you want to send.
+   - You can dynamically include answers to previous questions or other stored variables by selecting them from the available options.
+   - For post-call SMS, you can use variables like caller_name, phone_number, or URL.
+   - For live call SMS, you can use any variable stored from previous blocks (e.g., address, confirmation, or a live transcript).
+
+3. **Add Interim Message (Optional)**: Define a brief message for the AI to say while the text is being sent.
+
+4. **Add Call Outcome Tagging (Optional)**: Tag this stage for analytics, allowing you to understand if Phonely reached this point in the conversation.
+
+![Send SMS Block example](/home/assets/sms-block.png)
+
+## Important Note on Phone Number Forwarding & SMS
+
+If you are forwarding your main business phone number to Phonely's phone number, and you attempt to use the "customer's phone number they texted from" option directly with that forwarded number, the SMS might incorrectly be sent back to your forwarded number rather than the actual customer's original calling number.
+
+**Workaround/Best Practice**: To ensure the SMS is always sent to the correct customer, it is highly recommended to add a step in your workflow to explicitly ask the customer for their phone number (using an Ask Exactly Block, for example) and then use that collected variable as the recipient for the Send Text Message Block. This also provides an opportunity for a verification step.
+
+## Example Send SMS Use Case
+
+Here's an example workflow to illustrate the process of using the Send Text Message Block:
+
+1. **Trigger**: Customer would like to book an appointment
+
+2. **Action 1 (Talk Block)**: Qualify the customer with a series of questions to determine if they can schedule an appointment or not.
+
+3. **Action 2 (Ask Exactly Block)**: Ask for the customer's phone number (e.g., "What's the best number to send that link to?"). Store as customer_number.
+
+4. **Action 3 (Send Text Message Block)**: Send an SMS to the customer_number variable.
+   - **Message Content**: "Here's the link to our scheduling calendar: [cal_link_variable]"
+   - **Interim Message**: "Sending you that link right now."
+
+## Conclusion
+
+By following these steps, you can effectively send text messages to your customers within Phonely's call flows. This functionality is a powerful way to enhance customer interaction, provide supplementary information, and streamline communication, adding a robust channel to your AI receptionist's capabilities.
