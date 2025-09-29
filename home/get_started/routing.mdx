@@ -13,16 +13,22 @@ Most calls can be automated with Phonely’s AI agents, but no automation system
 
 ---
 
-## Transfers inside a Flow
+## Transfer Types
 
-The starting point for escalation is the **Transfer Call** block. You can drop this block into any flow where you want the AI to hand a call to a human.
+Phonely supports two types of transfers. Both are available through the **Transfer Call** block.
 
-<Card title="Cold Transfer">
-  Forwards the call directly to a number. Use this when speed matters more than context.
+<Card title="Cold Transfer" icon="phone-off">
+A direct pass-through. The call is forwarded immediately to the destination number with no introduction.  
+
+Use cold transfers when speed is more important than context, such as forwarding general inquiries to a receptionist line.
 </Card>
 
-<Card title="Warm Transfer">
-  Connects the caller after a short introduction. Example: “Hi, I have John on the line with a billing question.” This approach builds trust and avoids abrupt handoffs.
+<Card title="Warm Transfer" icon="phone-forwarded">
+A contextual handoff. The AI briefly introduces the caller before connecting.  
+
+For example: “Hi Sarah, I have John on the line with a billing question.”  
+
+Warm transfers can also detect voicemail. If no one picks up, the AI quietly resumes the call and lets the customer know someone will follow up.
 </Card>
 
 Warm transfers support advanced features such as voicemail detection. If voicemail picks up, the AI does not abandon the caller. Instead, it resumes the conversation with a fallback message, such as “It looks like no one is available right now, but I can take a message.”
@@ -35,15 +41,13 @@ Transfers don’t always happen in predictable places. A caller may ask for supp
 
 A Global Flow is always listening in the background. When its conditions are met — such as the caller saying “I need support” or mentioning a colleague’s name — the current flow is interrupted and the call is routed to the Global Flow. This makes escalation feel natural and responsive instead of rigid.
 
-<Accordion>
-  <AccordionItem title="When to use Global Flows">
-  Use a Global Flow when you want escalation to be available at any time, regardless of where the caller is in the conversation.
+<AccordionItem title="When to use Global Flows">
+Use a Global Flow when you want escalation to be available at any time, regardless of where the caller is in the conversation.
 </AccordionItem>
 
-  <AccordionItem title="How to configure">
-  Create a new flow, mark it as global, and define the triggers that should cause calls to jump into it. Add transfer logic inside that flow just as you would in any other.
+<AccordionItem title="How to configure">
+Create a new flow, mark it as global, and define the triggers that should cause calls to jump into it. Add transfer logic inside that flow just as you would in any other.
 </AccordionItem>
-</Accordion>
 
 ---
 
@@ -83,17 +87,15 @@ Phonely supports two main types of transfers. Both can be added with the **Trans
 
 Transfers often depend on context. The most common example is business hours. You may want calls to route to your support team from 9 AM to 9 PM, but outside of those hours, the AI should handle the request differently.
 
-<Steps>
-  <Step title="Add a Time Filter block">
-    Insert the block before your Transfer Call block in the flow.
-  </Step>
-  <Step title="Set your business hours">
-    Define the days and hours when transfers are allowed.
-  </Step>
-  <Step title="Configure fallback">
-    Outside of business hours, route the caller to a Talk block that explains the team is unavailable and offers to take a message.
-  </Step>
-</Steps>
+<Step title="Add a Time Filter block">
+  Insert the block before your Transfer Call block in the flow.
+</Step>
+<Step title="Set your business hours">
+  Define the days and hours when transfers are allowed.
+</Step>
+<Step title="Configure fallback">
+  Outside of business hours, route the caller to a Talk block that explains the team is unavailable and offers to take a message.
+</Step>
 
 This approach ensures that transfers only occur when someone is available to answer. Similar conditions can be applied to frustration detection, caller intent, or other business rules.
 
@@ -126,19 +128,17 @@ This design combines automation with human support. Callers get fast service whe
 
 Transfer Call blocks come with additional controls that improve reliability.
 
-<Properties>
-  <Property name="voicemail_detection" type="boolean">
-    Detects voicemail and brings the caller back into the flow with a fallback message.
-  </Property>
+<Property name="voicemail_detection" type="boolean">
+  Detects voicemail and brings the caller back into the flow with a fallback message.
+</Property>
 
-  <Property name="transfer_failures" type="action">
-    Defines what happens if a transfer cannot connect. For example, retry once or send the call to a fallback Talk block.
-  </Property>
+<Property name="transfer_failures" type="action">
+  Defines what happens if a transfer cannot connect. For example, retry once or send the call to a fallback Talk block.
+</Property>
 
-  <Property name="ivr_detection" type="boolean">
-    Detects if the destination number has an IVR (phone tree) and handles it appropriately.
-  </Property>
-</Properties>
+<Property name="ivr_detection" type="boolean">
+  Detects if the destination number has an IVR (phone tree) and handles it appropriately.
+</Property>
 
 These options ensure that escalation is never the end of the conversation. Even when transfers fail, callers remain supported.
 
