@@ -1,0 +1,40 @@
+---
+title: "Get Organizations"
+openapi: "GET /get-orgs"
+---
+
+Retrieves a list of all organizations that the authenticated user has access to.
+
+### Request
+
+**Method:** `GET`  
+**Endpoint:** `/api/get-orgs`  
+**Headers:**
+- `X-Authorization`: Your API key (required)
+
+**Query Parameters:**
+- `uid` (string, required): Your user ID
+
+### Response
+
+**Success Response (200):**
+```json
+[
+  {
+    "orgId": "string",
+    "name": "string"
+  }
+]
+```
+
+**Error Responses:**
+- `400 Bad Request`: Invalid request parameters
+- `401 Unauthorized`: Invalid or missing API key
+- `500 Internal Server Error`: Server error
+
+### Example
+
+```bash
+curl -X GET "https://app.phonely.ai/api/get-orgs?uid=user123" \
+  -H "X-Authorization: your-api-key"
+```

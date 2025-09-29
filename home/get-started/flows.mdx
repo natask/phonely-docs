@@ -1,51 +1,44 @@
 ---
-title: "Flows – Visual Conversation Builder"
-description: "Build complex conversations, connect with your tools and more with Flows"
+title: "Flows"
+description: "Build complex conversations, connect with your tools and more with flows"
 ---
 
 # Introduction
 
 Flows are the visual blueprints for your AI phone agents — defining what the agent says, collects, calls, and decides from “hello” to hang-up.
 
-<Info>
-  This page evolves as the product evolves. Start here, then jump to sections from the left nav as you need depth. 
-</Info>
 
 ## What are Flows?
 
-<Cards>
-  <Card title="Blocks" icon="sparkles">
-    Individual units of behavior — speak to callers, collect info, call APIs, transfer, end calls, and more.
-  </Card>
+<Card title="Blocks" icon="sparkles">
+Individual units of behavior — speak to callers, collect info, call APIs, transfer, end calls, and more.
+</Card>
 
-  <Card title="Edges" icon="arrow-right">
-    Connections that determine which path the conversation takes next.
-  </Card>
+<Card title="Edges" icon="arrow-right">
+Connections that determine which path the conversation takes next.
+</Card>
 
-  <Card title="Variables" icon="tag">
-    The agent’s short-term memory — values that change per call (caller inputs, system data, API results).
-  </Card>
-</Cards>
+<Card title="Variables" icon="tag">
+The agent's short-term memory — values that change per call (caller inputs, system data, API results).
+</Card>
 
 ## Why use Flows?
 
-<Cards>
-  <Card title="No code to start">
-    Drag, drop, and configure. Ship fast without waiting on engineering.
-  </Card>
+<Card title="No code to start">
+Drag, drop, and configure. Ship fast without waiting on engineering.
+</Card>
 
-  <Card title="Real-time & natural">
-    Handle interruptions, clarifications, and pivots mid-conversation.
-  </Card>
+<Card title="Real-time & natural">
+Handle interruptions, clarifications, and pivots mid-conversation.
+</Card>
 
-  <Card title="Built to scale">
-    Confidently handle thousands of concurrent calls.
-  </Card>
+<Card title="Built to scale">
+Confidently handle thousands of concurrent calls.
+</Card>
 
-  <Card title="Integrations">
-    Call your APIs and systems directly from the Flow.
-  </Card>
-</Cards>
+<Card title="Integrations">
+Call your APIs and systems directly from the Flow.
+</Card>
 
 ---
 
@@ -55,10 +48,7 @@ Flows are the visual blueprints for your AI phone agents — defining what the a
 
 <Steps>
   <Step title="Enter edit mode">
-    Open your Flow and click <b>
-    Edit</b>
-
-    .
+    Open your Flow and click <b>Edit</b>
   </Step>
   
   <Step title="Add blocks">
@@ -74,16 +64,13 @@ Flows are the visual blueprints for your AI phone agents — defining what the a
   </Step>
   
   <Step title="Save">
-    Click <b>
-    Save</b>
-
-    . Each save creates a new version.
+    Click <b>Save</b>
+    Each save creates a new version.
   </Step>
 </Steps>
 
 <info>
-  <b>
-  Versioning:</b>
+  <b>Versioning:</b>
 
    Every save is a version. You can revert. Always test before pushing to production.
 </info>
@@ -122,19 +109,19 @@ Flows are the visual blueprints for your AI phone agents — defining what the a
 
 # Call variables
 
-<Accordion>
-  <AccordionItem title="What are call variables?">
-  Variables are dynamic containers that persist for the duration of the call — like the agent’s working memory.
-</AccordionItem>
-
-  <AccordionItem title="How to set variables">
-  Use <b>Collect</b> blocks for caller input, <b>API Request</b> blocks for external data, or add custom variables via the Variable modal.
-</AccordionItem>
-
-  <AccordionItem title="How to access variables">
-  Reference by name with <code>@variable\_name</code> or select from the Variable modal. Use them in prompts, conditions, and API payloads.
-</AccordionItem>
+<AccordionGroup>
+  <Accordion title="What are call variables?">
+  Variables are dynamic containers that persist for the duration of the call — like the agent's working memory.
 </Accordion>
+
+  <Accordion title="How to set variables">
+  Use <b>Collect</b> blocks for caller input, <b>API Request</b> blocks for external data, or add custom variables via the Variable modal.
+</Accordion>
+
+  <Accordion title="How to access variables">
+  Reference by name with <code>@variable\_name</code> or select from the Variable modal. Use them in prompts, conditions, and API payloads.
+</Accordion>
+</AccordionGroup>
 
 ### Variable types
 
@@ -162,19 +149,17 @@ Flows are the visual blueprints for your AI phone agents — defining what the a
   Outcome tags enable analytics, reporting, and automations after the call ends.
 </info>
 
-<Cards>
-  <Card title="Automatic">
-    System applies defaults like <code>completed</code>, <code>failed</code>, or <code>transferred</code>.
-  </Card>
+<Card title="Automatic">
+System applies defaults like <code>completed</code>, <code>failed</code>, or <code>transferred</code>.
+</Card>
 
-  <Card title="Custom">
-    Set custom tags in <b>End Call</b> blocks for downstream workflows.
-  </Card>
+<Card title="Custom">
+Set custom tags in <b>End Call</b> blocks for downstream workflows.
+</Card>
 
-  <Card title="Conditional">
-    Apply tags only when conditions on variables are met.
-  </Card>
-</Cards>
+<Card title="Conditional">
+Apply tags only when conditions on variables are met.
+</Card>
 
 <Properties>
   <Property name="appointment_scheduled" type="tag" />
@@ -202,13 +187,7 @@ Flows are the visual blueprints for your AI phone agents — defining what the a
       </Step>
       
       <Step title="Simulate variables">
-        Seed test values for <code>
-        @name</code>
-
-        , <code>
-        @phone</code>
-
-        , etc.
+        Seed test values for <code>@name</code>, <code> @phone</code>, etc.
       </Step>
       
       <Step title="Path testing">
@@ -243,19 +222,19 @@ Flows are the visual blueprints for your AI phone agents — defining what the a
 
 ## Design guidelines
 
-<Accordion>
-  <AccordionItem title="Conversation design">
+<AccordionGroup>
+  <Accordion title="Conversation design">
   Keep prompts natural and concise, offer clear next steps, plan for interruptions, and confirm critical data before proceeding.
-</AccordionItem>
-
-  <AccordionItem title="Technical hygiene">
-  Test all branches, add fallback edges, watch performance metrics, and keep external dependencies resilient.
-</AccordionItem>
-
-  <AccordionItem title="Variable management">
-  Use descriptive names, validate inputs, handle missing data gracefully, and scrub sensitive data when not needed.
-</AccordionItem>
 </Accordion>
+
+  <Accordion title="Technical hygiene">
+  Test all branches, add fallback edges, watch performance metrics, and keep external dependencies resilient.
+</Accordion>
+
+  <Accordion title="Variable management">
+  Use descriptive names, validate inputs, handle missing data gracefully, and scrub sensitive data when not needed.
+</Accordion>
+</AccordionGroup>
 
 ---
 
@@ -343,27 +322,27 @@ Flows are the visual blueprints for your AI phone agents — defining what the a
 
 # Troubleshooting guide
 
-<Accordion>
-  <AccordionItem title="Flow not responding">
+<AccordionGroup>
+  <Accordion title="Flow not responding">
   Verify block connections, confirm required variables are set, test blocks individually, and check API auth/endpoints.
-</AccordionItem>
-
-  <AccordionItem title="Poor call quality">
-  Review Talk block voice settings, try alternate voices, adjust rate and pauses, and check variable interpolation.
-</AccordionItem>
-
-  <AccordionItem title="Transfer failures">
-  Confirm destination numbers/agents, test fallbacks, and verify timing and availability windows.
-</AccordionItem>
-
-  <AccordionItem title="Variable issues">
-  Check spelling/case, ensure values are set before use, validate data types, and test prompts using variables.
-</AccordionItem>
-
-  <AccordionItem title="API integration problems">
-  Test endpoints in isolation, verify credentials and headers, confirm request/response schemas, and watch rate limits/timeouts.
-</AccordionItem>
 </Accordion>
+
+  <Accordion title="Poor call quality">
+  Review Talk block voice settings, try alternate voices, adjust rate and pauses, and check variable interpolation.
+</Accordion>
+
+  <Accordion title="Transfer failures">
+  Confirm destination numbers/agents, test fallbacks, and verify timing and availability windows.
+</Accordion>
+
+  <Accordion title="Variable issues">
+  Check spelling/case, ensure values are set before use, validate data types, and test prompts using variables.
+</Accordion>
+
+  <Accordion title="API integration problems">
+  Test endpoints in isolation, verify credentials and headers, confirm request/response schemas, and watch rate limits/timeouts.
+</Accordion>
+</AccordionGroup>
 
 ---
 
@@ -377,43 +356,19 @@ You now have the essentials to design reliable, natural AI phone experiences:
 
 <Steps>
   <Step title="Start simple">
-    Build with <b>
-    Start Call</b>
-
-    , <b>
-    Talk</b>
-
-    , and <b>
-    End Call</b>
-
-    .
+    Build with <b>Start Call</b>, <b>Talk</b>, and <b>End Call</b>
   </Step>
   
   <Step title="Add interaction">
-    Use <b>
-    Collect</b>
-
-     and <b>
-    Question</b>
-
-     blocks.
+    Use <b>Collect</b> and <b>Question</b> blocks.
   </Step>
   
   <Step title="Integrate systems">
-    Add <b>
-    API Request</b>
-
-     and conditional edges.
+    Add <b>API Request</b> and conditional edges.
   </Step>
   
   <Step title="Optimize">
-    Use <b>
-    Filter</b>
-
-     and <b>
-    Time Filter</b>
-
-     to route intelligently.
+    Use <b>Filter</b> and <b>Time Filter</b> to route intelligently.
   </Step>
   
   <Step title="Test thoroughly">

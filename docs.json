@@ -17,15 +17,9 @@
             "group": "Get Started",
             "pages": [
               "home/get-started/introduction",
-              "home/get-started/quick_start"
-            ]
-          },
-          {
-            "group": "Workflow Guide",
-            "pages": [
-              "home/best-practices/Introduction",
-              "home/best-practices/flows",
-              "home/best-practices/"
+              "home/get-started/quick-start",
+              "home/get-started/flows",
+              "home/get-started/routing"
             ]
           },
           {

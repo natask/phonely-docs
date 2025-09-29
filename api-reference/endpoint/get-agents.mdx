@@ -1,0 +1,57 @@
+---
+title: "Get Agents"
+openapi: "POST /get-agents"
+---
+
+## Get Agents
+
+Retrieves a list of all agents accessible to the authenticated user.
+
+### Request
+
+**Method:** `POST`  
+**Endpoint:** `/api/get-agents`  
+**Headers:**
+- `X-Authorization`: Your API key (required)
+- `Content-Type`: `application/json`
+
+**Request Body:**
+```json
+{
+  "uid": "string"
+}
+```
+
+**Parameters:**
+- `uid` (string, required): Your user ID
+
+### Response
+
+**Success Response (200):**
+```json
+[
+  {
+    "uid": "string",
+    "agentId": "string",
+    "name": "string",
+    "country": "string",
+    "businessPhoneNumber": "string"
+  }
+]
+```
+
+**Error Responses:**
+- `400 Bad Request`: Invalid request body
+- `401 Unauthorized`: Invalid or missing API key
+- `500 Internal Server Error`: Server error
+
+### Example
+
+```bash
+curl -X POST https://app.phonely.ai/api/get-agents \
+  -H "X-Authorization: your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "uid": "user123"
+  }'
+```

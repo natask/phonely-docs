@@ -1,0 +1,40 @@
+---
+title: "List Voices"
+openapi: "GET /list-voices"
+---
+
+## List Voices
+
+Retrieves a list of all available public voices that can be used for agents.
+
+### Request
+
+**Method:** `GET`  
+**Endpoint:** `/api/list-voices`  
+**Headers:** None required
+
+### Response
+
+**Success Response (200):**
+```json
+[
+  {
+    "name": "string",
+    "id": "string",
+    "gender": "string",
+    "language": "string",
+    "tags": ["string"],
+    "accent": "string",
+    "isMultiLingualSupport": boolean
+  }
+]
+```
+
+**Error Responses:**
+- `500 Internal Server Error`: Server error
+
+### Example
+
+```bash
+curl -X GET https://app.phonely.ai/api/list-voices
+```

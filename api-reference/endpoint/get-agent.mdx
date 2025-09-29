@@ -1,0 +1,58 @@
+---
+title: "Get Agent"
+openapi: "POST /get-agent"
+---
+
+## Get Agent
+
+Retrieves detailed information about a specific agent.
+
+### Request
+
+**Method:** `POST`  
+**Endpoint:** `/api/get-agent`  
+**Headers:**
+- `X-Authorization`: Your API key (required)
+- `Content-Type`: `application/json`
+
+**Request Body:**
+```json
+{
+  "uid": "string",
+  "agentId": "string"
+}
+```
+
+**Parameters:**
+- `uid` (string, required): Your user ID
+- `agentId` (string, required): The ID of the agent to retrieve
+
+### Response
+
+**Success Response (200):**
+```json
+{
+  "uid": "string",
+  "agentId": "string", 
+  "name": "string",
+  "country": "string",
+  "businessPhoneNumber": "string"
+}
+```
+
+**Error Responses:**
+- `400 Bad Request`: Invalid request body
+- `401 Unauthorized`: Invalid or missing API key, or insufficient permissions
+- `500 Internal Server Error`: Server error
+
+### Example
+
+```bash
+curl -X POST https://app.phonely.ai/api/get-agent \
+  -H "X-Authorization: your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "uid": "user123",
+    "agentId": "agent456"
+  }'
+```

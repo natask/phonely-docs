@@ -1,15 +1,13 @@
 ---
-title: "Call Routing, Transfers, and Escalation"
+title: "Call Routing"
 description: "Learn how to configure call routing, transfer, and escalation in Phonely to combine AI automation with reliable human handoffs."
 ---
 
-# Call Routing, Transfers, and Escalation
-
 Most calls can be automated with Phonely’s AI agents, but no automation system covers every scenario. A frustrated customer, a request for a specific team member, or a policy that requires human sign-off are all situations where escalation is necessary. Phonely makes it simple to design call flows that are both efficient and flexible: the AI handles routine calls while ensuring humans are available when needed.
 
-<Callout type="info">
+<Info>
 Escalation is not a fallback of last resort. It is a deliberate part of your call design, ensuring every customer journey has a safe path to resolution.
-</Callout>
+</Info>
 
 ---
 
@@ -37,14 +35,14 @@ Warm transfers also support voicemail detection. If no one answers, the AI quiet
 
 Transfers don’t always happen in predictable places. A caller may ask for support halfway through an appointment booking flow, or the AI may detect frustration at any point. For these cases, Phonely supports **Global Flows**.
 
-<Accordion>
-  <AccordionItem title="When to use Global Flows">
+<AccordionGroup>
+  <Accordion title="When to use Global Flows">
     Use a Global Flow when you want escalation to be available at any time, regardless of where the caller is in the conversation.
-  </AccordionItem>
-  <AccordionItem title="How to configure">
+  </Accordion>
+  <Accordion title="How to configure">
     Create a new flow, mark it as global, and define the triggers that should cause calls to jump into it. Add transfer logic inside that flow just as you would in any other.
-  </AccordionItem>
-</Accordion>
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -128,6 +126,6 @@ Failing to set fallbacks can result in dropped calls. Always define what should 
 
 Call routing, transfers, and escalation transform AI automation from a closed system into a flexible, human-aware experience. Cold transfers are fast, warm transfers are professional, Global Flows provide responsiveness at any point, and Time Filters give you control over when transfers should occur. By layering in advanced options such as voicemail detection and transfer failure handling, you can design flows that never leave a caller unsupported.
 
-<Callout type="info">
-For more detail, see our guides on [Warm Transfers](#), [Time Filters](#), and [Fallback Handling](#).
-</Callout>
+<Info>
+For more detail, see our guides on [Warm Transfers](/home/blocks/warm-transfer), [Time Filters](/home/blocks/time-filter), and [Fallback Handling](#).
+</Info>

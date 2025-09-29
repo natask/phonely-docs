@@ -1,0 +1,111 @@
+---
+title: "Agent Documents"
+openapi: "GET /agent-documents"
+---
+
+## Agent Documents
+
+Manages documents in an agent's knowledge base. This endpoint supports GET, POST, and DELETE operations.
+
+### List Documents
+
+**Method:** `GET`  
+**Endpoint:** `/api/agent-documents`  
+**Headers:**
+- `X-Authorization`: Your API key (required)
+
+**Query Parameters:**
+- `uid` (string, required): Your user ID
+- `agentId` (string, required): The ID of the agent
+
+**Response:**
+```json
+{
+  "documents": [
+    {
+      "id": "string",
+      "name": "string",
+      "active": boolean,
+      "fileUrl": "string",
+      "lastUpdatedBy": "string",
+      "lastUpdatedAt": "string"
+    }
+  ]
+}
+```
+
+### Add Documents
+
+**Method:** `POST`  
+**Endpoint:** `/api/agent-documents`  
+**Headers:**
+- `X-Authorization`: Your API key (required)
+- `Content-Type`: `multipart/form-data`
+
+**Form Data:**
+- `uid` (string, required): Your user ID
+- `agentId` (string, required): The ID of the agent
+- `files` (File[], required): Array of files to upload (max 10 files, 10MB each)
+
+**Supported File Types:**
+- PDF (.pdf)
+- Word documents (.docx)
+- Text files (.txt)
+
+**Response:**
+```json
+{
+  "documentIds": ["string"],
+  "message": "Files uploaded successfully"
+}
+```
+
+### Delete Document
+
+**Method:** `DELETE`  
+**Endpoint:** `/api/agent-documents`  
+**Headers:**
+- `X-Authorization`: Your API key (required)
+
+**Query Parameters:**
+- `uid` (string, required): Your user ID
+- `agentId` (string, required): The ID of the agent
+- `documentId` (string, required): The ID of the document to delete
+
+**Response:**
+```json
+{
+  "message": "Document deleted successfully"
+}
+```
+
+### Error Responses
+
+- `400 Bad Request`: Invalid request parameters, too many files, file too large, or unsupported file type
+- `401 Unauthorized`: Invalid or missing API key, or insufficient permissions
+- `404 Not Found`: Document not found (for DELETE operations)
+- `500 Internal Server Error`: Server error
+
+### Examples
+
+**List documents:**
+```bash
+curl -X GET "https://app.phonely.ai/api/agent-documents?uid=user123&agentId=agent456" \
+  -H "X-Authorization: your-api-key"
+```
+
+**Upload documents:**
+```bash
+curl -X POST https://app.phonely.ai/api/agent-documents \
+  -H "X-Authorization: your-api-key" \
+  -F "uid=user123" \
+  -F "agentId=agent456" \
+  -F "files=@document1.pdf" \
+  -F "files=@document2.docx"
+```
+
+**Delete document:**
+```bash
+curl -X DELETE "https://app.phonely.ai/api/agent-documents?uid=user123&agentId=agent456&documentId=doc789" \
+  -H "X-Authorization: your-api-key"
+```
