@@ -1,4 +1,132 @@
 ---
-title: "Quickstart"
-description: "Description of your new file."
+title: Call Routing, Transfers, and Escalation
+description: Configure call routing and escalation in Phonely to ensure smooth customer experiences, reliable handoffs, and professional fallbacks.
 ---
+
+# Call Routing, Transfers, and Escalation
+
+Phonely’s AI agents can automate most calls, but some conversations require a human. Escalation isn’t a weakness — it’s how you guarantee that customers always have a path to resolution. With call routing, transfer, and escalation features, you can decide when the AI continues handling a call and when it hands off to your team.
+
+<Callout type="info">
+Use transfers to build trust. A well-placed escalation shows customers that your AI works *with* your team, not instead of it.
+</Callout>
+
+---
+
+## Transfer Call Block
+
+The **Transfer Call** block is your primary tool for moving a call from AI to a human.
+
+<Cards>
+  <Card title="Cold Transfer">
+    Forwards the caller directly to a number. Fast and simple, but without context.
+  </Card>
+  <Card title="Warm Transfer">
+    Introduces the caller to the agent before connecting. Example: <i>“Hi, I have John on the line with a billing question.”</i>
+  </Card>
+</Cards>
+
+Warm transfers support advanced options like voicemail detection. If voicemail picks up, the caller doesn’t get dropped — Phonely stays on the line, then resumes the conversation with fallback messaging.
+
+---
+
+## Global Transfer Flows
+
+Sometimes escalation should be available anywhere, not just at specific points.
+
+<Accordion>
+  <AccordionItem title="What are Global Flows?">
+    Global Flows can interrupt any conversation when conditions are met, moving the caller into a dedicated transfer flow.
+  </AccordionItem>
+  <AccordionItem title="When to use them">
+    Perfect for situations like:
+    - Caller requests support mid-conversation
+    - Caller asks for a specific team member
+    - Caller frustration is detected
+  </AccordionItem>
+</Accordion>
+
+---
+
+## Conditional Transfers
+
+Transfers can also be controlled by rules. The most common is business hours.
+
+<Steps>
+  <Step title="Add a Time Filter">
+    Place a Time Filter block before your Transfer Call block.
+  </Step>
+  <Step title="Set business hours">
+    Define days and times when transfers are allowed (e.g., 9 AM – 9 PM).
+  </Step>
+  <Step title="Define fallback">
+    If outside of hours, the AI continues with a message like: <i>“Our team isn’t available right now, but I can take a message.”</i>
+  </Step>
+</Steps>
+
+Conditions aren’t limited to time. You can configure escalation for frustration detection, keyword triggers, or business policy requirements.
+
+---
+
+## Example: Appointment Scheduling Flow
+
+Here’s a practical flow that combines multiple transfer techniques:
+
+<Tabs>
+  <Tab title="Step 1: Confirm intent">
+    Use a Talk block to ask who the caller wants to reach — support, technical team, or a specific person.
+  </Tab>
+  <Tab title="Step 2: Route options">
+    Create Transfer Call blocks for each choice with the correct phone number configured.
+  </Tab>
+  <Tab title="Step 3: Add professionalism">
+    Enable warm transfers so the caller is introduced before connecting.
+  </Tab>
+  <Tab title="Step 4: Plan for failures">
+    Configure voicemail detection and fallback Talk blocks if no one answers.
+  </Tab>
+</Tabs>
+
+---
+
+## Advanced Options
+
+Transfer blocks allow for fine-grained control over edge cases.
+
+<Properties>
+  <Property name="voicemail_detection" type="boolean">
+    Detects voicemail and returns the caller to the flow with a custom message.
+  </Property>
+  <Property name="transfer_failures" type="handler">
+    Defines what happens if the transfer cannot be completed (e.g., retry, fallback message).
+  </Property>
+  <Property name="ivr_detection" type="boolean">
+    Handles scenarios where the destination number has its own phone tree.
+  </Property>
+</Properties>
+
+---
+
+## Best Practices
+
+<Accordion>
+  <AccordionItem title="Think of escalation as part of the experience">
+    A warm transfer feels like the AI is part of your team, not just a gatekeeper.
+  </AccordionItem>
+  <AccordionItem title="Always configure fallbacks">
+    No call should ever end in silence. Define clear next steps if transfers fail.
+  </AccordionItem>
+  <AccordionItem title="Use Global Flows strategically">
+    Keep escalation available when it matters most, but avoid over-triggering.
+  </AccordionItem>
+</Accordion>
+
+---
+
+# Summary
+
+With Phonely’s routing system you can automate confidently, knowing there is always a human safety net. Use cold transfers for speed, warm transfers for professionalism, global flows for flexibility, and time filters for precision. Layer in advanced options like voicemail detection and fallback handling to guarantee that no call is ever left unresolved.
+
+<Callout>
+Need more detail? Explore related guides on [Warm Transfers](#), [Time Filters](#), and [Fallback Handling](#).
+</Callout>
