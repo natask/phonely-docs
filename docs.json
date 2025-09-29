@@ -16,7 +16,10 @@
           {
             "group": "Get Started",
             "pages": [
-              "Build your first agent in 5 mins"
+              "Introduction",
+              "100% Automation w/ Flows",
+              "Call Routing + Escalation"
+              
             ]
           },
           {
