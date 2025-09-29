@@ -16,16 +16,18 @@
           {
             "group": "Get Started",
             "pages": [
-              "Introduction",
-              "100% Automation w/ Flows",
-              "Call Routing + Escalation"
+              "home/get_started/Introduction",
+              "home/get_started/flows",
+              "home/get_started/routing"
               
             ]
           },
           {
             "group": "Workflow Guide",
             "pages": [
-              "home/workflow-guide/overview"
+              "home/best-practices/Introduction",
+              "home/best-practices/flows",
+              "home/best-practices/"
             ]
           },
           {
