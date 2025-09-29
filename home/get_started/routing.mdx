@@ -17,15 +17,13 @@ Most calls can be automated with Phonely’s AI agents, but no automation system
 
 The starting point for escalation is the **Transfer Call** block. You can drop this block into any flow where you want the AI to hand a call to a human.
 
-
 <Card title="Cold Transfer">
-Forwards the call directly to a number. Use this when speed matters more than context.
+  Forwards the call directly to a number. Use this when speed matters more than context.
 </Card>
 
 <Card title="Warm Transfer">
-Connects the caller after a short introduction. Example: “Hi, I have John on the line with a billing question.” This approach builds trust and avoids abrupt handoffs.
+  Connects the caller after a short introduction. Example: “Hi, I have John on the line with a billing question.” This approach builds trust and avoids abrupt handoffs.
 </Card>
-
 
 Warm transfers support advanced features such as voicemail detection. If voicemail picks up, the AI does not abandon the caller. Instead, it resumes the conversation with a fallback message, such as “It looks like no one is available right now, but I can take a message.”
 
@@ -48,21 +46,35 @@ A Global Flow is always listening in the background. When its conditions are met
 </Accordion>
 
 ---
+
 ## Transfer Types
 
-Phonely supports two main types of transfers. Both can be added with the **Transfer Call** block in your Flow Builder.  
+Phonely supports two main types of transfers. Both can be added with the **Transfer Call** block in your Flow Builder.
 
 <Cards>
   <Card title="Cold Transfer">
-    A direct pass-through. The call is forwarded immediately to the destination number with no introduction.  
-    <br/><br/>
+    A direct pass-through. The call is forwarded immediately to the destination number with no introduction.
+
+    <br />
+
+    <br />
+
     Use cold transfers when speed is more important than context, such as forwarding general inquiries to a receptionist line.
   </Card>
+
   <Card title="Warm Transfer">
-    A contextual handoff. The AI briefly introduces the caller before connecting.  
-    <br/><br/>
-    For example: “Hi Sarah, I have John on the line with a billing question.”  
-    <br/><br/>
+    A contextual handoff. The AI briefly introduces the caller before connecting.
+
+    <br />
+
+    <br />
+
+    For example: “Hi Sarah, I have John on the line with a billing question.”
+
+    <br />
+
+    <br />
+
     Warm transfers can also detect voicemail. If no one picks up, the AI quietly resumes the call and lets the customer know someone will follow up.
   </Card>
 </Cards>
@@ -75,11 +87,9 @@ Transfers often depend on context. The most common example is business hours. Yo
   <Step title="Add a Time Filter block">
     Insert the block before your Transfer Call block in the flow.
   </Step>
-  
   <Step title="Set your business hours">
     Define the days and hours when transfers are allowed.
   </Step>
-  
   <Step title="Configure fallback">
     Outside of business hours, route the caller to a Talk block that explains the team is unavailable and offers to take a message.
   </Step>
